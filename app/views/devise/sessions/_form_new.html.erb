@@ -1,0 +1,32 @@
+<div class="<% if active %>active_div <% end %>">
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row collapse">
+
+    <div class="row collapse prefix-radius">
+        <div class="small-3 columns">
+          <%= f.label "Email", :class => "prefix control-label" %>
+        </div>
+        <div class="small-9 columns">
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+    </div>
+
+
+    <div class="row collapse prefix-radius">
+          <div class="small-3 columns">
+            <%= f.label "Mot de passe", :class => "prefix control-label"%>
+          </div>
+          <div class="small-9 columns">
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+    </div>
+
+    <div>
+      <%= f.submit t('commons.action.validate'), :class => 'button' %>
+    </div>
+
+  </div>
+  <% end %>
+
+</div>

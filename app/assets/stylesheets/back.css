@@ -1,0 +1,172 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require jquery-ui
+ *= require bootstrap_and_overrides.css
+ *= require_self
+ */
+
+a{
+  color: #000;
+}
+a:hover{
+  text-decoration: none;
+}
+
+.hide_chevron { visibility: hidden; }
+
+label.required:after {
+  content:"*";
+}
+
+.back-filter{
+  border-width: 1px;
+  border-style: dotted;
+  border-color: black;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.back-filter-item{
+  display: inline-block;
+  margin-right: 10px;
+}
+.back-main-checkbox{
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.back-list-button-checkbox{
+  display: inline-block;
+  margin-right: 20px;
+
+}
+
+.back-list-button-general{
+  display: inline-block;
+}
+
+.back-nb-element{
+  margin-top: 10px;
+}
+
+.back-mail-attribute {
+  width: 150px;
+}
+
+.table-striped thead th {
+  vertical-align: top;
+}
+
+#font-styles {
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+#font-styles .leftside{
+  float: left;
+  width: 30%;
+  border-right: 1px solid #eee;
+  padding-right: 10px;
+}
+#font-styles .rightside{
+  float: left;
+  width: 55%;
+  margin-left: 10px;
+}
+
+
+#font-styles .rightside .other-content{
+  color: #aaa;
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+#font-styles .ui-widget-header{
+    background: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0px;
+}
+
+.image_default{
+  height: 100px;
+}
+
+.form-actions {
+  padding: 0 0 0 0;
+  margin-bottom: 0px;
+}
+
+.back_status{
+  color: red;
+  width: 100px;
+  float: left;
+  text-transform: uppercase;
+}
+
+.group-btn{
+  position : fixed;
+  top: 120px;
+  margin-left: -30px;
+  background-color: white;
+  z-index: 1;
+}
+
+.with_message{
+  top: 180px;
+}
+
+.error_explanation{
+  margin-top: 60px;
+}
+
+.group-btn div{
+  width: 50px;
+  float: left;
+  padding-left: 30px;
+}
+
+.group-btn ~ .navbar {
+  padding-top: 50px;
+}
+
+.with_message2 ~ .navbar {
+  padding-top: 0px;
+}
+
+.btn-separator{
+  margin-top: 10px;
+}
+
+.sousactivite_image{
+  float: left;
+  border: 1px solid;
+  padding: 5px;
+  margin-right: 15px;
+}
+
+#list_images{
+
+}
+
+#add_image{
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: solid 1px;
+}
+
+#preview-image{
+  max-height: 100px;
+}

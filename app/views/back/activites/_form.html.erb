@@ -1,0 +1,71 @@
+<p id="error-message" class="alert alert-danger" style="display:none;"></p>
+
+<%= form_for(@activite, url: @activite.persisted? ? back_activite_path(@activite.id) : back_activites_path, html: { class: "form"}) do |f| %>
+
+<div class="row">
+  <div class="span1">
+    <div class="control-group" style="height:60px;padding-top:5px;">
+      Nom
+    </div>
+  </div>
+  <div class="span2">
+    <div class="control-group" style='height:60px;'>
+      <%= f.text_field :title, :style => "width:300px;" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-actions">
+  <a class="btn-end btn btn-primary">Valider</a>
+  <a class="close-popup-link btn btn-inverse">Fermer</a>
+</div>
+
+<% end %>
+
+<script type="text/javascript">
+var activite_ready = function() {
+  // Fields in error
+  var fields_in_error = new Array();
+
+  // Init the error messages
+  function init_error(){
+    $('#error-message').hide();
+    fields_in_error.forEach(function(field) {
+      $(field).parent().removeClass('error');
+    });
+    fields_in_error = new Array();
+  }
+
+  // Show list of errors
+  // If exists => return true
+  // If no error => return false
+  function is_error(message){
+    message = typeof message !== 'undefined' ? message : "Champs requis";
+
+    if (fields_in_error.length == 0) return false;
+    fields_in_error.forEach(function(field) {
+      $(field).parent().addClass('error');
+    });
+    $('#error-message').text(message);
+    $('#error-message').show();
+
+    return true;
+  }
+
+  // Validation of form
+  function check_form(){
+    if ($('#activite_title').val() == '') fields_in_error.push('#activite_title');
+
+    // Submit form if no error
+    return !is_error();
+  }
+
+  $('.btn-end').on('click', function(){
+    init_error();
+    if (check_form()) $( ".form" ).submit();
+  });
+
+};
+$(document).ready(activite_ready);
+$(document).on('page:load', activite_ready);
+</script>

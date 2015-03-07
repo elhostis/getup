@@ -1,0 +1,95 @@
+<h3>Activités</h3>
+
+<div class="back-filter">
+  <%= form_tag '', :method => :get, :id => 'form-back-filtered' do %>
+    <div class="icon-search"></div>
+    <div class="back-filter-item">
+      <input name="scope_text" placeholder="<%= t('commons.action.search') %>" type="text" value="<%= params[:scope_text] %>"></input>
+    </div>
+    <div class="back-filter-item">
+      Publication<br/>
+      <select name="scope_published">
+        <option value=""><%= t('commons.all') %></option>
+        <option value="1" <% if params["scope_published"] == "1" %>selected="selected"<% end %>>
+          Publié
+        </option>
+        <option value="0" <% if params["scope_published"] == "0" %>selected="selected"<% end %>>
+          Non publié
+        </option>
+      </select>
+    </div>
+    <div class="back-filter-item">
+      Activite<br/>
+      <select name="scope_activite_id">
+        <option value="">Toutes</option>
+        <% Activite.all.each do |activite| %>
+          <option value="<%=activite.id %>"
+            <% if params["scope_activite_id"].to_i == activite.id %>selected="selected"<% end %>>
+            <%=activite.title%>
+          </option>
+        <% end %>
+      </select>
+    </div>
+  <% end %>
+</div>
+
+<%= form_tag(back_activite_update_all_path, :method => :post, :id => 'form-back-list_id') do %>
+  <input id="scope_text" name="scope_text" type="hidden" value="<%= params["scope_text"]%>">
+  <input id="scope_published" name="scope_published" type="hidden" value="<%= params["scope_published"]%>">
+  <input id="scope_activite_id" name="scope_activite_id" type="hidden" value="<%= params["scope_activite_id"]%>">
+
+  <div class="back-button">
+    <div class="back-main-checkbox">
+      <%= check_box('list_id', 'check_all', {:multiple => true}, nil)%>
+    </div>
+    <div class="back-list-button-checkbox">
+      <%= hidden_field 'list_id', 'action', :value => 'nothing' %>
+      <%= link_to '#', :class => 'btn btn-small list_id_action my-tooltip btn-warning', 'data-action' => "publish", :data => { :delay => 500, :title => "Publier"} do %>
+        <i class="icon-ok"></i>
+      <% end %>
+      <%= link_to '#', :class => 'btn btn-small list_id_action my-tooltip btn-warning', 'data-action' => "unpublish", :data => { :delay => 500, :title => "Dépublier"} do %>
+        <i class="icon-remove"></i>
+      <% end %>
+      <%= link_to '#', data: { message: "Sûr ?", :delay => 500, :title => "Supprimer" },
+      :class => "btn btn-small btn-danger list_id_action my-tooltip", 'data-action' => "delete" do %>
+        <i class="icon-trash icon-white"></i>
+      <% end %>
+    </div>
+    <div class="back-list-button-general">
+      <%= link_to new_back_activite_path, :remote => true, :class => "btn btn-small static-popup-link my-tooltip", :data => { :delay => 500, :title => "Ajouter"} do%>
+        <i class="icon-plus"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="back-nb-element">
+    <%= t('back.item', :count => @activites.total_count) %>
+  </div>
+
+  <% if @activites.length > 0 %>
+    <%= paginate @activites, :theme => 'back' %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="span1"></th>
+          <th class="span3">Nom</th>
+          <th class="span1">Publié</th>
+          <th class="span2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @activites.each do |activite| %>
+          <%= render partial: "activite", :locals => {:activite => activite} %>
+          <% activite.sousactivites.each do |sousactivite| %>
+            <%= render partial: "sousactivites", :locals => {:sousactivite => sousactivite} %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @activites, :theme => 'back' %>
+  <% end %>
+<% end %>
+
+<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" style="width:600px; padding:30px">
+</div>

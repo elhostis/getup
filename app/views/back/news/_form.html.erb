@@ -1,0 +1,104 @@
+<p id="error-message" class="alert alert-danger" style="display:none;"></p>
+
+<%= form_for(@new, url: @new.persisted? ? back_news_path(@new.id) : back_news_index_path, html: { class: "form"}) do |f| %>
+
+<div class="row">
+  <div class="span1">
+    <div class="control-group" style="height:50px;padding-top:5px;">
+      Titre
+    </div>
+    <div class="control-group" style="height:135px;padding-top:10px;">
+      Contenu
+    </div>
+    <div class="control-group" style="height:150px;padding-top:15px;">
+      Image
+    </div>
+  </div>
+  <div class="span2">
+    <div class="control-group" style='height:60px;'>
+      <%= f.text_field :title, :style => "width:300px;" %>
+    </div>
+    <div class="control-group" style='height:150px;'>
+      <%= f.text_area :intro, :class => "txtarea span5", :rows => 6 %>
+    </div>
+    <div class="control-group" style='height:150px;'>
+      <%= f.file_field :image, :id => "load-preview-image" %>
+      <% if @new.image.url %>
+        <%= image_tag @new.image.url(:logo_small), :alt => "", :id => "preview-image" %>
+      <% else %>
+        <img id="preview-image"/>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="form-actions">
+  <a class="btn-end btn btn-primary">Valider</a>
+  <a class="close-popup-link btn btn-inverse">Fermer</a>
+</div>
+
+<% end %>
+
+<script type="text/javascript">
+var news_ready = function() {
+  // Fields in error
+  var fields_in_error = new Array();
+
+  // Init the error messages
+  function init_error(){
+    $('#error-message').hide();
+    fields_in_error.forEach(function(field) {
+      $(field).parent().removeClass('error');
+    });
+    fields_in_error = new Array();
+  }
+
+  // Show list of errors
+  // If exists => return true
+  // If no error => return false
+  function is_error(message){
+    message = typeof message !== 'undefined' ? message : "Champs requis";
+
+    if (fields_in_error.length == 0) return false;
+    fields_in_error.forEach(function(field) {
+      $(field).parent().addClass('error');
+    });
+    $('#error-message').text(message);
+    $('#error-message').show();
+
+    return true;
+  }
+
+  // Validation of form
+  function check_form(){
+    if ($('#new_title').val() == '') fields_in_error.push('#new_title');
+    if ($('#new_intro').val() == '') fields_in_error.push('#new_intro');
+
+    // Submit form if no error
+    return !is_error();
+  }
+
+  $('.btn-end').on('click', function(){
+    init_error();
+    if (check_form()) $( ".form" ).submit();
+  });
+
+  $("#load-preview-image").change(function(){
+    readURL(this, "#preview-image");
+  });
+
+  // To show image preloaded
+  function readURL(input, preview) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $(preview).attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+};
+$(document).ready(news_ready);
+$(document).on('page:load', news_ready);
+</script>

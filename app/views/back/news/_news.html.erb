@@ -1,0 +1,31 @@
+<tr>
+  <td>
+    <%= check_box('list_id', 'id', {:class => "list_id_id", :multiple => true}, new.id, nil)%>
+  </td>
+  <td>
+    <%= new.created_at %>
+  </td>
+  <td>
+    <%= new.title %>
+  </td>
+  <td><%= render :partial => "shared/boolean_icon", :locals => {:boolean => new.publish} %></td>
+  <td>
+    <div class='pull-right btn-group'>
+      <%= link_to edit_back_news_path(new.id, params.slice(:scope_text, :scope_published, :scope_new_id)), :remote => true, :class => 'static-popup-link btn btn-small my-tooltip', :data => { :delay => 500, :title => "Editer" } do %>
+        <i class="icon-pencil"></i>
+      <% end %>
+      <% if new.publish? %>
+        <%= link_to publish_status_back_news_path(new.id, 'false', params.slice(:scope_text, :scope_published, :scope_new_id)), :class => 'btn btn-small my-tooltip btn-warning', :data => { :delay => 500, :title => "Dépublier" } do %>
+          <i class="icon-remove"></i>
+        <% end %>
+      <% else %>
+        <%= link_to publish_status_back_news_path(new.id, 'true', params.slice(:scope_text, :scope_published, :scope_new_id)), :class => 'btn btn-small my-tooltip btn-warning', :data => { :delay => 500, :title => "Publier" } do %>
+          <i class="icon-ok"></i>
+        <% end %>
+      <% end %>
+      <%= link_to back_news_path(new.id, params.slice(:scope_text, :scope_published, :scope_new_id)), method: :delete, data: { confirm: "Sûr ?", :delay => 500, :title => "Supprimer" }, :class => "btn btn-small my-tooltip btn-danger" do %>
+        <i class="icon-trash icon-white"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

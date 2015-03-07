@@ -1,0 +1,35 @@
+<div class="habillage">
+  <section class="connexion">
+    <div class="row bg-color-light-blurred">
+      <div class="small-12 active_div pass_forgotten">
+        <h1 class="text-center"><%= t('front.user.change_password')%></h1>
+      </div>
+    </div>
+
+    <div class="row bg-color-light-blurred">
+      <div class="small-6 small-centered columns">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <% if resource.errors.any? %>
+        <div id="error_explanation" class="error-message">
+          <ul><%= raw devise_error_messages! %></ul>
+        </div>
+        <% end %>
+
+        <%= f.hidden_field :reset_password_token %>
+        <%= f.label t('commons.field.password') %><br />
+        <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+
+        <%= f.label t('commons.field.password_confirmation') %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+      <div>
+        <%= f.submit t('front.user.reset_password_instructions'), :class => 'button' %>
+      </div>
+      <% end %>
+      <br/>
+      <br/>
+    </div>
+  </section>
+</div>
+
+

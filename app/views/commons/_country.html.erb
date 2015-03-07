@@ -1,0 +1,7 @@
+<%
+list_country = ["FR", "BE", "GB", "NL"]
+list_country = ["GB", "FR", "NL", "BE"] if session[:locale].to_s == "en"
+list_country = ["NL", "BE", "GB", "FR"] if session[:locale].to_s == "nl"
+%>
+
+<%= country_select(table, name, {iso_codes: true, priority_countries: list_country}, {class: "country"}) %>

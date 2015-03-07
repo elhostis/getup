@@ -1,0 +1,14 @@
+<ul class="center">
+	<% menu.each do |activite| %>
+		<li>
+			<%= link_to raw(activite.title.slice(3,activite.title.length)), front_activite_path(activite.slug) %>
+			<!--<ul class="dropdown">
+				<% activite.sousactivites.each do |sousactivite| %>
+					<li>
+						<%= link_to sousactivite.title, "#" %>
+					</li>
+				<% end %>
+			</ul>-->
+		</li>
+	<% end %>
+</ul>

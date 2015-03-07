@@ -1,0 +1,30 @@
+<div class="habillage">
+  <div class="row bg-secondary-color-blurred collapse">
+    <div class="small-12 medium-6 columns">
+      <h1>Plan du site</h1>
+
+      <ul class="center">
+        <%= link_to "Page d'accueil", "/" %>
+
+        <% @activites.each do |activite| %>
+          <li>
+            <%= link_to raw(activite.title.slice(3,activite.title.length)), front_activite_path(activite.slug) %>
+            <ul>
+              <% activite.sousactivites.scope_published(true).order("sousactivites.title ASC").each do |sousactivite| %>
+                <li>
+                  <%= link_to raw(sousactivite.title), front_activite_path(activite.slug, "sousactivite" => sousactivite.slug) %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+
+        <li><%= link_to "Actus", front_news_index_path %></li>
+        <li><%= link_to "Références", front_references_path %></li>
+        <li><%= link_to "Contact", new_front_contact_form_path %></li>
+
+      </ul>
+
+    </div>
+  </div>
+</div>

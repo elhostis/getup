@@ -1,0 +1,1 @@
+<%= text_field table, name, value: (value.blank? ? nil : value.strftime(Rails.application.config.format_date_mask[session[:locale]])), class: "inputdate #{other_class}" %>

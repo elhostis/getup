@@ -1,0 +1,14 @@
+<%= paginator.render do %>
+  <div class="pagination pagination-right">
+    <ul>
+      <%= prev_page_tag unless current_page.first? %>
+      <% each_page do |page| %>
+        <% if page.inside_window? %>
+          <%= page_tag page %>
+        <% end %>
+      <% end %>
+      <%= next_page_tag unless current_page.last? %>
+    </ul>
+  </div>
+<% end %>
+

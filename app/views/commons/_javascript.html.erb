@@ -1,0 +1,8 @@
+<script type="text/javascript">
+ var javascript_ready = function() {
+  $('.inputdate_picker').datepicker({ language: '<%=session[:locale]%>'  , autoclose: true});
+};
+
+$(document).ready(javascript_ready);
+$(document).on('page:load', javascript_ready);
+</script>

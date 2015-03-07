@@ -1,0 +1,27 @@
+<footer>
+	<div class="row">
+		<nav class="top-bar bottom-bar" data-topbar role="navigation">
+			<ul class="title-area">
+				<li class="name"></li>
+				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+				<li class="toggle-topbar menu-icon" ><a href=""><span>Menu</span></a></li>
+			</ul>
+			<section class="top-bar-section">
+				<ul class="right">
+					<li>
+						<%= link_to "Actus", front_news_index_path %>
+					</li>
+					<li>
+						<%= link_to "Références", front_references_path %>
+					</li>
+					<li>
+						<%= link_to "Plan du site", front_plandusite_path %>
+					</li>
+					<li>
+						<%= link_to "Contact", new_front_contact_form_path %>
+					</li>
+				</ul>
+			</section>
+		</nav>
+	</div>
+</footer>

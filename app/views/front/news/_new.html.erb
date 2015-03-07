@@ -1,0 +1,13 @@
+<div>
+  <span><%=l(new.created_at)%></span>
+
+  <% if new.image.url %>
+    <%= image_tag new.image.url(:thumb), :alt => "" %>
+  <% end %>
+
+  <h1><%=new.title%></h1>
+
+  <span>
+    <%=simple_format(new.intro)%>
+  </span>
+</div>

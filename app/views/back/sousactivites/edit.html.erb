@@ -1,0 +1,88 @@
+<h3>Activités / <%= @sousactivite.activite.title  %> / <%= @sousactivite.title %> </h3>
+
+<%= form_for(@sousactivite, url: back_sousactivite_path(@sousactivite.id), html: { method: :put, class: "form", multipart: true }) do |f| %>
+
+<div class="actions row group-btn">
+  <div>
+    <%= f.submit "Valider", :class => "btn btn-primary" %>
+  </div>
+  <div>
+    <%= link_to "Retour", back_activites_path, :class => "btn btn-inverse" %>
+  </div>
+</div>
+
+<%= f.hidden_field :activite_id, :value => @sousactivite.activite_id %>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav nav-tabs" id="tabs">
+        <li class="active">
+          <a href="#text" data-toggle="tab" class="tab">Textes</a>
+        </li>
+        <li >
+          <a href="#image" data-toggle="tab" class="tab">Images</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="text">
+    <div class="row">
+      <div class="span12">
+        <div class="control-group" style='height:60px;'>
+          <%= f.text_field :title, :style => "width:300px;" %>
+        </div>
+        <div class="control-group" style='height:600px;'>
+          <%= f.cktext_area :description %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="image">
+    <div class="row">
+      <div class="span12">
+        <div class='event-table'>
+
+          <div class="control-group tab-content">
+            <div class='event-table-column' style='width:500px;'>
+              <div class="control-group event-table-elem-big">
+                <div id="list_images">
+                  <%= f.fields_for :sousactivite_images do |sousactivite_image| %>
+                    <% if sousactivite_image.object.image.url %>
+                      <div class="sousactivite_image">
+                        <%= image_tag sousactivite_image.object.image.url(:logo_small), :alt => "" %>
+                        <input id="list_images" name="list_images[]" type="hidden" value="<%=sousactivite_image.object.id%>">
+                        <div class="event-image-link">
+                          <a onclick="javascript:$(this).parent().parent().remove();">Supprimer ?</a>
+                        </div>
+                      </div>
+                    <% else %>
+                      </div>
+                      <div style="clear:both"></div>
+                      <div id="add_image" >
+                        Pour ajouter une nouvelle image, cliquez sur le bouton suivant.<br/>
+                        <%= sousactivite_image.file_field :image, :id => "load-preview-image" %>
+                      </div>
+                      <div>
+                        <img id="preview-image"/>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+<% end %>

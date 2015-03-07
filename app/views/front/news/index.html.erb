@@ -1,0 +1,11 @@
+
+<div class="habillage">
+  <div class="row bg-secondary-color-blurred collapse">
+    <div class="small-12 medium-6 columns">
+      <% @news.each do |new| %>
+        <%= render new %>
+        <hr/>
+      <% end %>
+    </div>
+  </div>
+</div>

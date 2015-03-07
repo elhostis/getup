@@ -1,0 +1,55 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+.navbar .container {width: 1170px;}
+
+input,
+textarea,
+.uneditable-input {
+  width: 290px;
+}
+
+.control-group {
+  margin-bottom: 0px;
+}
+
+input[type="radio"] {
+  margin-top: -1px;
+  vertical-align: middle;
+}
+
+.bs-docs-sidenav.affix {
+  top: 70px;
+  border:1px;
+  border-color:#ccc;
+  border-style:solid;
+  height: 140px;
+  -moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+}
+
+.bs-docs-sidenav .icon-chevron-right {
+  float: right;
+  margin-top: 2px;
+  margin-right: -6px;
+  opacity: .25;
+}
+
+.bs-docs-sidenav {
+  width: 228px;
+}
+
+.error > .cke{
+  border: 1px solid red;
+}
+
+.error > .select2-container{
+  border: 1px solid red;
+}
+

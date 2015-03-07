@@ -1,0 +1,29 @@
+<tr>
+  <td>
+    <%= check_box('list_id', 'id', {:class => "list_id_id", :multiple => true}, "sa" + sousactivite.id.to_s, nil)%>
+  </td>
+  <td>
+    <i class="icon-chevron-right"></i>
+    <%= sousactivite.title %>
+  </td>
+  <td><%= render :partial => "shared/boolean_icon", :locals => {:boolean => sousactivite.publish} %></td>
+  <td>
+    <div class='pull-right btn-group'>
+      <%= link_to edit_back_sousactivite_path(sousactivite.id, params.slice(:scope_text, :scope_published, :scope_activite_id)), :class => 'btn btn-small my-tooltip', :data => { :delay => 500, :title => "Editer" } do %>
+        <i class="icon-pencil"></i>
+      <% end %>
+      <% if sousactivite.publish? %>
+        <%= link_to publish_status_back_sousactivite_path(sousactivite.id, 'false', params.slice(:scope_text, :scope_published, :scope_activite_id)), :class => 'btn btn-small my-tooltip btn-warning', :data => { :delay => 500, :title => "Dépublier" } do %>
+          <i class="icon-remove"></i>
+        <% end %>
+      <% else %>
+        <%= link_to publish_status_back_sousactivite_path(sousactivite.id, 'true', params.slice(:scope_text, :scope_published, :scope_activite_id)), :class => 'btn btn-small my-tooltip btn-warning', :data => { :delay => 500, :title => "Publier" } do %>
+          <i class="icon-ok"></i>
+        <% end %>
+      <% end %>
+      <%= link_to back_sousactivite_path(sousactivite.id, params.slice(:scope_text, :scope_published, :scope_activite_id)), method: :delete, data: { confirm: "Sûr ?", :delay => 500, :title => "Supprimer" }, :class => "btn btn-small my-tooltip btn-danger" do %>
+        <i class="icon-trash icon-white"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

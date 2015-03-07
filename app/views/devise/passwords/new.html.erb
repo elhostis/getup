@@ -1,0 +1,29 @@
+<div class="habillage">
+	<section class="connexion">
+		<div class="row bg-color-light-blurred">
+			<div class="small-12 active_div pass_forgotten">
+				<h1 class="text-center"><%= t('front.user.forget_password')%></h1>
+			</div>
+		</div>
+
+		<div class="row bg-color-light-blurred">
+			<div class="small-6 small-centered columns">
+				<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+				<% if resource.errors.any? %>
+				<div id="error_explanation" class="error-message">
+					<ul><%= raw devise_error_messages! %></ul>
+				</div>
+				<% end %>
+
+				<%= f.label t('commons.field.email') %><br />
+				<%= f.email_field :email, autofocus: true %>
+			</div>
+			<div>
+				<%= f.submit t('front.user.reset_password_instructions'), :class => 'button' %>
+			</div>
+			<% end %>
+			<br/>
+			<br/>
+		</div>
+	</section>
+</div>

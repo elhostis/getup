@@ -1,0 +1,65 @@
+<% content_for :scripts do %>
+	<%= javascript_include_tag "front/jquery.bxslider.min.js" %>
+	<%= javascript_include_tag "front/jquery.easing.1.3.js" %>
+	<%= javascript_include_tag "front/carousel_home.js" %>
+	<%= javascript_include_tag "front/jquery.als-1.7.min.js" %>
+<% end %>
+
+<div class="habillage">
+	<div class="row bg-secondary-color-blurred collapse">
+		<div class="small-12 medium-6 columns">
+			<ul class="bxslider bxslider_fix">
+				<li>
+					<img alt="" src="/uploads/sousactivite_image/image/16/thumb_verticale_solution_-_pose_de_conduits7.jpg">
+				</li>
+				<li>
+					<img alt="" src="/uploads/sousactivite_image/image/17/thumb_verticale_solution_-_relampage3.jpg">
+				</li>
+			</ul>
+		</div>
+		<div class="small-12 medium-6 columns">
+			<div id="home">
+				ici un texte à mettre
+			</div>
+		</div>
+	</div>
+
+	<div class="row bg-secondary-color-blurred collapse">
+		<div class="small-12 medium-6 columns">
+			<% if @news.length > 0 %>
+				<section class="section-home-projects first-section bg-color-dark">
+					<div class="als-container" id="home_news">
+						<span class="als-prev"><%= image_tag "front/thin_left_arrow_333.png", :alt => "Précédent" %></span>
+			  		<div class="als-viewport">
+			    		<ul class="als-wrapper">
+			    			<% @news.each do |new| %>
+			      			<li class="als-item">
+			      				<%= link_to front_news_index_path do %>
+				      				<div>
+				      				 	<% if new.image.url %>
+				    							<%= image_tag new.image.url(:logo_small), :alt => "" %>
+				  							<% end %>
+				      					<%=new.title%>
+				      				</div>
+				      			<% end %>
+			      			</li>
+			      		<% end %>
+			    		</ul>
+			  		</div>
+			  		<span class="als-next"><%= image_tag "front/thin_right_arrow_333.png", :alt => "Suivant" %></span>
+					</div>
+				</section>
+			<% end %>
+		</div>
+		<div class="small-12 medium-6 columns">
+			<div class="block-share-container">
+				<h4 class="text-center"><span>Partager cette page</span></h4>
+				<div class="social-btns">
+					<%= render :partial => 'social_script' %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>

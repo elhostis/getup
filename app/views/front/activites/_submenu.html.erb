@@ -1,0 +1,7 @@
+<ul class="center">
+  <% activite.sousactivites.scope_published(true).order("sousactivites.title ASC").each do |sousactivite| %>
+    <li>
+      <%= link_to raw(sousactivite.title), front_activite_path(activite.slug, "sousactivite" => sousactivite.slug), {:remote => true} %>
+    </li>
+  <% end %>
+</ul>
