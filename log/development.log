@@ -829,3 +829,327 @@ Processing by Back::ActivitesController#index as HTML
   Rendered back/activites/_sousactivites.html.erb (1.1ms)
   Rendered back/activites/index.html.erb within layouts/back (27.3ms)
 Completed 200 OK in 58ms (Views: 52.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-14 10:57:37 +0100
+Processing by Front::IndexsController#index as HTML
+  [1m[35mNew Load (0.1ms)[0m  SELECT  `news`.* FROM `news`  WHERE `news`.`publish` = 1  ORDER BY news.created_at DESC LIMIT 10 OFFSET 0
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/indexs/index.html.erb within layouts/front (21.9ms)
+  [1m[36mActivite Load (0.2ms)[0m  [1mSELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5[0m
+  Rendered front/menus/_menu.html.erb (3.8ms)
+  Rendered layouts/front/_header.html.erb (4.5ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 39ms (Views: 34.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/uploads/sousactivite_image/image/16/thumb_verticale_solution_-_pose_de_conduits7.jpg" for 127.0.0.1 at 2015-03-14 10:57:37 +0100
+
+ActionController::RoutingError (No route matches [GET] "/uploads/sousactivite_image/image/16/thumb_verticale_solution_-_pose_de_conduits7.jpg"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.9ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.8ms)
+
+
+Started GET "/uploads/sousactivite_image/image/17/thumb_verticale_solution_-_relampage3.jpg" for 127.0.0.1 at 2015-03-14 10:57:37 +0100
+
+ActionController::RoutingError (No route matches [GET] "/uploads/sousactivite_image/image/17/thumb_verticale_solution_-_relampage3.jpg"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.8ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.3ms)
+
+
+Started GET "/uploads/new/image/6/logo_small_02.jpg" for 127.0.0.1 at 2015-03-14 10:57:37 +0100
+
+ActionController::RoutingError (No route matches [GET] "/uploads/new/image/6/logo_small_02.jpg"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.0ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (44.0ms)
+
+
+Started GET "/uploads/new/image/5/logo_small_verticale_solution_-_enseigne_-_decoration1.jpg" for 127.0.0.1 at 2015-03-14 10:57:37 +0100
+
+ActionController::RoutingError (No route matches [GET] "/uploads/new/image/5/logo_small_verticale_solution_-_enseigne_-_decoration1.jpg"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.3ms)
+
+
+Started GET "/uploads/new/image/4/logo_small_Baptiste_Le_Quiniou_SPA_Chamarande_IMG_3104_opti.jpg" for 127.0.0.1 at 2015-03-14 10:57:37 +0100
+
+ActionController::RoutingError (No route matches [GET] "/uploads/new/image/4/logo_small_Baptiste_Le_Quiniou_SPA_Chamarande_IMG_3104_opti.jpg"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.3ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.1ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2F" for 127.0.0.1 at 2015-03-14 10:57:37 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/"}
+Completed 200 OK in 251ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-14 11:00:28 +0100
+Processing by Front::IndexsController#index as HTML
+  [1m[35mNew Load (0.1ms)[0m  SELECT  `news`.* FROM `news`  WHERE `news`.`publish` = 1  ORDER BY news.created_at DESC LIMIT 10 OFFSET 0
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/indexs/index.html.erb within layouts/front (10.8ms)
+  [1m[36mActivite Load (0.2ms)[0m  [1mSELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5[0m
+  Rendered front/menus/_menu.html.erb (4.0ms)
+  Rendered layouts/front/_header.html.erb (4.5ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/uploads/new/image/6/logo_small_02.jpg" for 127.0.0.1 at 2015-03-14 11:00:28 +0100
+
+ActionController::RoutingError (No route matches [GET] "/uploads/new/image/6/logo_small_02.jpg"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.9ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.0ms)
+
+
+Started GET "/uploads/new/image/5/logo_small_verticale_solution_-_enseigne_-_decoration1.jpg" for 127.0.0.1 at 2015-03-14 11:00:28 +0100
+
+ActionController::RoutingError (No route matches [GET] "/uploads/new/image/5/logo_small_verticale_solution_-_enseigne_-_decoration1.jpg"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.4ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.7ms)
+
+
+Started GET "/uploads/new/image/4/logo_small_Baptiste_Le_Quiniou_SPA_Chamarande_IMG_3104_opti.jpg" for 127.0.0.1 at 2015-03-14 11:00:28 +0100
+
+ActionController::RoutingError (No route matches [GET] "/uploads/new/image/4/logo_small_Baptiste_Le_Quiniou_SPA_Chamarande_IMG_3104_opti.jpg"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /home/elhostis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.1ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2F" for 127.0.0.1 at 2015-03-14 11:00:28 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/"}
+Completed 200 OK in 250ms (Views: 0.1ms | ActiveRecord: 0.0ms)
