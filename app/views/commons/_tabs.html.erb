@@ -1,7 +1,0 @@
-<ul class="nav nav-tabs">
-<% organisation.available_locales.each_with_index do |locale, index| %>
-  <li <% if index == 0 %>class="active"<% end %>>
-    <a href="#<%= prefix %><%= locale %>" data-toggle="tab"><%= t("commons.languages.#{locale}") %></a>
-  </li>
-<% end %>
-</ul>

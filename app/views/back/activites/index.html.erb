@@ -4,12 +4,12 @@
   <%= form_tag '', :method => :get, :id => 'form-back-filtered' do %>
     <div class="icon-search"></div>
     <div class="back-filter-item">
-      <input name="scope_text" placeholder="<%= t('commons.action.search') %>" type="text" value="<%= params[:scope_text] %>"></input>
+      <input name="scope_text" placeholder="Rechercher" type="text" value="<%= params[:scope_text] %>"></input>
     </div>
     <div class="back-filter-item">
       Publication<br/>
       <select name="scope_published">
-        <option value=""><%= t('commons.all') %></option>
+        <option value="">Tous</option>
         <option value="1" <% if params["scope_published"] == "1" %>selected="selected"<% end %>>
           Publié
         </option>
@@ -60,10 +60,6 @@
         <i class="icon-plus"></i>
       <% end %>
     </div>
-  </div>
-
-  <div class="back-nb-element">
-    <%= t('back.item', :count => @activites.total_count) %>
   </div>
 
   <% if @activites.length > 0 %>

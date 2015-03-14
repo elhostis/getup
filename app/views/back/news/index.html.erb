@@ -49,10 +49,6 @@
     </div>
   </div>
 
-  <div class="back-nb-element">
-    <%= t('back.item', :count => @news.total_count) %>
-  </div>
-
   <% if @news.length > 0 %>
     <%= paginate @news, :theme => 'back' %>
     <table class="table table-striped">

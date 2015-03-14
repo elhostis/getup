@@ -56,7 +56,7 @@ var sousactivite_ready = function() {
 
   // Validation of form
   function check_form(){
-    message = "<%= I18n.t('message.error.field_required') %>";
+    message = "Champ requis";
     if ($('#sousactivite_title').val() == '') fields_in_error.push('#sousactivite_title');
 
     // Submit form if no error
