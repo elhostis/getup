@@ -5,9 +5,9 @@ require 'uri'
 
 class EmailFormatValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    return if value.blank?
-    response = HTTParty.get("#{::Rails.application.config.validation_api_url}/services/email/validation/#{URI.escape(value)}")
-    record.errors.add attribute, I18n.t('user.error.invalid_email') if response["status"] == "KO"
+    # return if value.blank?
+    # response = HTTParty.get("#{::Rails.application.config.validation_api_url}/services/email/validation/#{URI.escape(value)}")
+    # record.errors.add attribute, I18n.t('user.error.invalid_email') if response["status"] == "KO"
   end
 end
 

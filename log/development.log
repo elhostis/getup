@@ -408,3 +408,4 @@ Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Facti
 Processing by Api::UtilsController#get_share_count as JSON
   Parameters: {"url"=>"http://127.0.0.1:3000/activites/02_industrie"}
 Completed 200 OK in 247ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[36mActivite Load (0.2ms)[0m  [1mSELECT `activites`.* FROM `activites`[0m
