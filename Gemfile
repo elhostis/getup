@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use mysql2 as the database for Active Record
 gem 'mysql2', '~> 0.3.16'
+# Use PG for heroku
+gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

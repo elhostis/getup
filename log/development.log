@@ -1,0 +1,410 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-14 10:06:40 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Front::IndexsController#index as HTML
+  [1m[35mNew Load (0.2ms)[0m  SELECT  `news`.* FROM `news`  WHERE `news`.`publish` = 1  ORDER BY news.created_at DESC LIMIT 10 OFFSET 0
+  Rendered front/_social_script.html.erb (4.4ms)
+  Rendered front/indexs/index.html.erb within layouts/front (43.5ms)
+  [1m[36mActivite Load (0.3ms)[0m  [1mSELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC[0m
+  [1m[35mSousactivite Load (0.2ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2
+  [1m[36mSousactivite Load (0.2ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5[0m
+  Rendered front/menus/_menu.html.erb (23.6ms)
+  Rendered layouts/front/_header.html.erb (24.7ms)
+  Rendered layouts/front/_footer.html.erb (0.6ms)
+Completed 200 OK in 3312ms (Views: 3280.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2F" for 127.0.0.1 at 2015-03-14 10:06:44 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/"}
+Completed 200 OK in 283ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activites/01_batiment" for 127.0.0.1 at 2015-03-14 10:06:54 +0100
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"01_batiment"}
+  [1m[35mActivite Load (0.3ms)[0m  SELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '01_batiment'  ORDER BY `activites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.2ms)[0m  [1mSELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2  ORDER BY `sousactivites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.3ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC
+  Rendered front/activites/_submenu.html.erb (2.0ms)
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2[0m
+  [1m[35mSousactiviteImage Load (0.2ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 9
+  [1m[36mSousactiviteImage Load (0.2ms)[0m  [1mSELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 10[0m
+  Rendered front/sousactivites/_sousactivite.html.erb (0.5ms)
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/activites/show.html.erb within layouts/front (18.8ms)
+  [1m[35mActivite Load (0.2ms)[0m  SELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2[0m  [["activite_id", 2]]
+  [1m[35mSousactivite Load (0.2ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3
+  [1m[36mSousactivite Load (0.2ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5
+  Rendered front/menus/_menu.html.erb (6.0ms)
+  Rendered layouts/front/_header.html.erb (6.7ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 36ms (Views: 31.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F01_batiment" for 127.0.0.1 at 2015-03-14 10:06:55 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/01_batiment"}
+Completed 200 OK in 253ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/controls.png"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+
+Started GET "/activites/02_industrie" for 127.0.0.1 at 2015-03-14 10:06:55 +0100
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"02_industrie"}
+  [1m[36mActivite Load (0.2ms)[0m  [1mSELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '02_industrie'  ORDER BY `activites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.2ms)[0m  SELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3  ORDER BY `sousactivites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.2ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC[0m
+  Rendered front/activites/_submenu.html.erb (1.1ms)
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3
+  [1m[36mSousactiviteImage Load (0.2ms)[0m  [1mSELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 11[0m
+  [1m[35mSousactiviteImage Load (0.2ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 12
+  Rendered front/sousactivites/_sousactivite.html.erb (0.1ms)
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/activites/show.html.erb within layouts/front (7.0ms)
+  [1m[36mActivite Load (0.1ms)[0m  [1mSELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m  [["activite_id", 3]]
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5[0m
+  Rendered front/menus/_menu.html.erb (3.1ms)
+  Rendered layouts/front/_header.html.erb (3.5ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F02_industrie" for 127.0.0.1 at 2015-03-14 10:06:56 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/02_industrie"}
+Completed 200 OK in 250ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activites/03_securite" for 127.0.0.1 at 2015-03-14 10:06:56 +0100
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"03_securite"}
+  [1m[35mActivite Load (0.3ms)[0m  SELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '03_securite'  ORDER BY `activites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.2ms)[0m  [1mSELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4  ORDER BY `sousactivites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.2ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC
+  Rendered front/activites/_submenu.html.erb (1.0ms)
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4[0m
+  [1m[35mSousactiviteImage Load (0.2ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 13
+  Rendered front/sousactivites/_sousactivite.html.erb (0.1ms)
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/activites/show.html.erb within layouts/front (5.0ms)
+  [1m[36mActivite Load (0.1ms)[0m  [1mSELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4  [["activite_id", 4]]
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5[0m
+  Rendered front/menus/_menu.html.erb (3.2ms)
+  Rendered layouts/front/_header.html.erb (3.6ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 20ms (Views: 15.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F03_securite" for 127.0.0.1 at 2015-03-14 10:06:57 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/03_securite"}
+Completed 200 OK in 251ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activites/04_divers" for 127.0.0.1 at 2015-03-14 10:06:57 +0100
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"04_divers"}
+  [1m[35mActivite Load (0.3ms)[0m  SELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '04_divers'  ORDER BY `activites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.2ms)[0m  [1mSELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5  ORDER BY `sousactivites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.2ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC
+  Rendered front/activites/_submenu.html.erb (1.1ms)
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5[0m
+  [1m[35mSousactiviteImage Load (0.3ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 14
+  [1m[36mSousactiviteImage Load (0.2ms)[0m  [1mSELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 15[0m
+  Rendered front/sousactivites/_sousactivite.html.erb (0.1ms)
+  Rendered front/_social_script.html.erb (0.1ms)
+  Rendered front/activites/show.html.erb within layouts/front (5.7ms)
+  [1m[35mActivite Load (0.1ms)[0m  SELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5  [["activite_id", 5]]
+  Rendered front/menus/_menu.html.erb (3.2ms)
+  Rendered layouts/front/_header.html.erb (3.7ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F04_divers" for 127.0.0.1 at 2015-03-14 10:06:57 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/04_divers"}
+Completed 200 OK in 273ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activites/02_industrie" for 127.0.0.1 at 2015-03-14 10:06:58 +0100
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"02_industrie"}
+  [1m[36mActivite Load (0.1ms)[0m  [1mSELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '02_industrie'  ORDER BY `activites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.2ms)[0m  SELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3  ORDER BY `sousactivites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.2ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC[0m
+  Rendered front/activites/_submenu.html.erb (1.7ms)
+  [1m[35mSousactivite Load (0.2ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3
+  [1m[36mSousactiviteImage Load (0.2ms)[0m  [1mSELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 11[0m
+  [1m[35mSousactiviteImage Load (0.2ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 12
+  Rendered front/sousactivites/_sousactivite.html.erb (0.1ms)
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/activites/show.html.erb within layouts/front (9.3ms)
+  [1m[36mActivite Load (0.2ms)[0m  [1mSELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m  [["activite_id", 3]]
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5[0m
+  Rendered front/menus/_menu.html.erb (4.1ms)
+  Rendered layouts/front/_header.html.erb (4.9ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 27ms (Views: 23.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F02_industrie" for 127.0.0.1 at 2015-03-14 10:06:58 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/02_industrie"}
+Completed 200 OK in 248ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activites/02_industrie" for 127.0.0.1 at 2015-03-14 10:06:58 +0100
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"02_industrie"}
+  [1m[35mActivite Load (0.2ms)[0m  SELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '02_industrie'  ORDER BY `activites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.2ms)[0m  [1mSELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3  ORDER BY `sousactivites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC
+  Rendered front/activites/_submenu.html.erb (1.0ms)
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m
+  [1m[35mSousactiviteImage Load (0.1ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 11
+  [1m[36mSousactiviteImage Load (0.1ms)[0m  [1mSELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 12[0m
+  Rendered front/sousactivites/_sousactivite.html.erb (0.1ms)
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/activites/show.html.erb within layouts/front (6.9ms)
+  [1m[35mActivite Load (0.1ms)[0m  SELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3  [["activite_id", 3]]
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5
+  Rendered front/menus/_menu.html.erb (3.2ms)
+  Rendered layouts/front/_header.html.erb (3.6ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 23ms (Views: 17.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F02_industrie" for 127.0.0.1 at 2015-03-14 10:06:59 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/02_industrie"}
+Completed 200 OK in 251ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activites/01_batiment" for 127.0.0.1 at 2015-03-14 10:06:59 +0100
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"01_batiment"}
+  [1m[36mActivite Load (0.3ms)[0m  [1mSELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '01_batiment'  ORDER BY `activites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.3ms)[0m  SELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2  ORDER BY `sousactivites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC[0m
+  Rendered front/activites/_submenu.html.erb (1.1ms)
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2
+  [1m[36mSousactiviteImage Load (0.2ms)[0m  [1mSELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 9[0m
+  [1m[35mSousactiviteImage Load (0.1ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 10
+  Rendered front/sousactivites/_sousactivite.html.erb (0.1ms)
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/activites/show.html.erb within layouts/front (7.0ms)
+  [1m[36mActivite Load (0.2ms)[0m  [1mSELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2  [["activite_id", 2]]
+  [1m[36mSousactivite Load (0.2ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5[0m
+  Rendered front/menus/_menu.html.erb (4.8ms)
+  Rendered layouts/front/_header.html.erb (5.5ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 29ms (Views: 21.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F01_batiment" for 127.0.0.1 at 2015-03-14 10:06:59 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/01_batiment"}
+Completed 200 OK in 251ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activites/01_batiment" for 127.0.0.1 at 2015-03-14 10:13:50 +0100
+
+Mysql2::Error - Unsupported charset: '"unicode"':
+  mysql2 (0.3.16) lib/mysql2/client.rb:42:in `charset_name='
+  mysql2 (0.3.16) lib/mysql2/client.rb:42:in `initialize'
+  activerecord (4.1.1) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.1.1) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:435:in `new_connection'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:445:in `checkout_new_connection'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:416:in `acquire_connection'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:351:in `block in checkout'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:350:in `checkout'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:541:in `retrieve_connection'
+  activerecord (4.1.1) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.1.1) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.1.1) lib/active_record/migration.rb:388:in `check_pending!'
+  activerecord (4.1.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/elhostis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/37730120/variables" for 127.0.0.1 at 2015-03-14 10:13:50 +0100
+
+
+Started GET "/activites/01_batiment" for 127.0.0.1 at 2015-03-14 10:14:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"01_batiment"}
+  [1m[35mActivite Load (0.1ms)[0m  SELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '01_batiment'  ORDER BY `activites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2  ORDER BY `sousactivites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC
+  Rendered front/activites/_submenu.html.erb (4.4ms)
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2[0m
+  [1m[35mSousactiviteImage Load (0.1ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 9
+  [1m[36mSousactiviteImage Load (0.1ms)[0m  [1mSELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 10[0m
+  Rendered front/sousactivites/_sousactivite.html.erb (0.4ms)
+  Rendered front/_social_script.html.erb (2.4ms)
+  Rendered front/activites/show.html.erb within layouts/front (26.6ms)
+  [1m[35mActivite Load (0.1ms)[0m  SELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2[0m  [["activite_id", 2]]
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5
+  Rendered front/menus/_menu.html.erb (3.6ms)
+  Rendered layouts/front/_header.html.erb (4.5ms)
+  Rendered layouts/front/_footer.html.erb (0.5ms)
+Completed 200 OK in 181ms (Views: 136.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F01_batiment" for 127.0.0.1 at 2015-03-14 10:14:13 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/01_batiment"}
+Completed 200 OK in 251ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activites/01_batiment" for 127.0.0.1 at 2015-03-14 10:14:15 +0100
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"01_batiment"}
+  [1m[36mActivite Load (0.2ms)[0m  [1mSELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '01_batiment'  ORDER BY `activites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.2ms)[0m  SELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2  ORDER BY `sousactivites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC[0m
+  Rendered front/activites/_submenu.html.erb (1.0ms)
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2
+  [1m[36mSousactiviteImage Load (0.1ms)[0m  [1mSELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 9[0m
+  [1m[35mSousactiviteImage Load (0.1ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 10
+  Rendered front/sousactivites/_sousactivite.html.erb (0.1ms)
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/activites/show.html.erb within layouts/front (7.2ms)
+  [1m[36mActivite Load (0.1ms)[0m  [1mSELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2  [["activite_id", 2]]
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5[0m
+  Rendered front/menus/_menu.html.erb (3.1ms)
+  Rendered layouts/front/_header.html.erb (3.6ms)
+  Rendered layouts/front/_footer.html.erb (0.2ms)
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F01_batiment" for 127.0.0.1 at 2015-03-14 10:14:15 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/01_batiment"}
+Completed 200 OK in 250ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/activites/02_industrie" for 127.0.0.1 at 2015-03-14 10:14:15 +0100
+Processing by Front::ActivitesController#show as HTML
+  Parameters: {"id"=>"02_industrie"}
+  [1m[35mActivite Load (0.1ms)[0m  SELECT  `activites`.* FROM `activites`  WHERE `activites`.`slug` = '02_industrie'  ORDER BY `activites`.`id` ASC LIMIT 1
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT  `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3  ORDER BY `sousactivites`.`id` ASC LIMIT 1[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3 AND `sousactivites`.`publish` = 1  ORDER BY sousactivites.title ASC
+  Rendered front/activites/_submenu.html.erb (0.9ms)
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3[0m
+  [1m[35mSousactiviteImage Load (0.1ms)[0m  SELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 11
+  [1m[36mSousactiviteImage Load (0.1ms)[0m  [1mSELECT `sousactivite_images`.* FROM `sousactivite_images`  WHERE `sousactivite_images`.`sousactivite_id` = 12[0m
+  Rendered front/sousactivites/_sousactivite.html.erb (0.1ms)
+  Rendered front/_social_script.html.erb (0.2ms)
+  Rendered front/activites/show.html.erb within layouts/front (6.3ms)
+  [1m[35mActivite Load (0.1ms)[0m  SELECT `activites`.* FROM `activites`  WHERE `activites`.`publish` = 1  ORDER BY activites.title ASC
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 3  [["activite_id", 3]]
+  [1m[36mSousactivite Load (0.1ms)[0m  [1mSELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 4[0m
+  [1m[35mSousactivite Load (0.1ms)[0m  SELECT `sousactivites`.* FROM `sousactivites`  WHERE `sousactivites`.`activite_id` = 5
+  Rendered front/menus/_menu.html.erb (3.0ms)
+  Rendered layouts/front/_header.html.erb (3.4ms)
+  Rendered layouts/front/_footer.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/utils/get_share_count?url=http%3A%2F%2F127.0.0.1%3A3000%2Factivites%2F02_industrie" for 127.0.0.1 at 2015-03-14 10:14:16 +0100
+Processing by Api::UtilsController#get_share_count as JSON
+  Parameters: {"url"=>"http://127.0.0.1:3000/activites/02_industrie"}
+Completed 200 OK in 247ms (Views: 0.1ms | ActiveRecord: 0.0ms)
