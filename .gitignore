@@ -9,6 +9,7 @@
 
 # Ignore all logfiles and tempfiles.
 /tmp
+/log/*
 
 # Ignore lock gemfile 
 /Gemfile.lock
