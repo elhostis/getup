@@ -1,0 +1,8 @@
+fr:
+  time:
+    formats:
+      default: '%d/%m/%Y'
+      long: '%A %d %B %Y %H:%M'
+      short: '%d/%m/%Y %H:%M'
+      date: '%d/%m/%Y'
+      export: '%Y/%m/%d'
