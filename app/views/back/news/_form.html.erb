@@ -22,9 +22,9 @@
       <%= f.text_area :intro, :class => "txtarea span5", :rows => 6 %>
     </div>
     <div class="control-group" style='height:150px;'>
-      <%= f.file_field :image, :id => "load-preview-image" %>
-      <% if @new.image.url %>
-        <%= image_tag @new.image.url(:logo_small), :alt => "", :id => "preview-image" %>
+      <%= f.text_field :image, :id => "load-preview-image" %>
+      <% unless @new.image.blank? %>
+        <%= image_tag @new.image, :alt => "", :id => "preview-image" %>
       <% else %>
         <img id="preview-image"/>
       <% end %>

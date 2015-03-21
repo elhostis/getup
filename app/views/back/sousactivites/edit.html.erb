@@ -49,12 +49,12 @@
 
           <div class="control-group tab-content">
             <div class='event-table-column' style='width:500px;'>
-              <div class="control-group event-table-elem-big">
+              <div class="control-group" style='width:1100px;'>
                 <div id="list_images">
                   <%= f.fields_for :sousactivite_images do |sousactivite_image| %>
-                    <% if sousactivite_image.object.image.url %>
+                    <% unless sousactivite_image.object.image.blank? %>
                       <div class="sousactivite_image">
-                        <%= image_tag sousactivite_image.object.image.url(:logo_small), :alt => "" %>
+                        <%= image_tag sousactivite_image.object.image, :alt => "", :class => "vignette" %>
                         <input id="list_images" name="list_images[]" type="hidden" value="<%=sousactivite_image.object.id%>">
                         <div class="event-image-link">
                           <a onclick="javascript:$(this).parent().parent().remove();">Supprimer ?</a>
@@ -65,7 +65,7 @@
                       <div style="clear:both"></div>
                       <div id="add_image" >
                         Pour ajouter une nouvelle image, cliquez sur le bouton suivant.<br/>
-                        <%= sousactivite_image.file_field :image, :id => "load-preview-image" %>
+                        <%= sousactivite_image.text_field :image, :id => "load-preview-image" %>
                       </div>
                       <div>
                         <img id="preview-image"/>

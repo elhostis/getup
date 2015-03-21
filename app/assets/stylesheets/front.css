@@ -94,3 +94,23 @@
 #home_news .als-next {
   right: 20px;
 }
+
+.vignette_news{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.thumbnail_news{
+  max-width: 450px;
+  max-height: 450px;
+}
+
+.vignette_activite{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.thumbnail_activite{
+  max-width: 450px;
+  max-height: 450px;
+}

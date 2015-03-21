@@ -47,6 +47,13 @@ class Back::SousactivitesController < BackController
           end
         end
       end
+      if params['sousactivite']['sousactivite_images_attributes']
+        ssact = params['sousactivite']['sousactivite_images_attributes']
+        if ssact.values.last['image'].blank?
+          ssact.delete(ssact.keys.last)
+          params['sousactivite']['sousactivite_images_attributes'] = ssact
+        end
+      end
       if @sousactivite.update(sousactivite_params)
         format.html { redirect_to back_activites_path(get_params), notice: "Opération réussie" }
         format.json { render :show, status: :ok, location: @sousactivite }

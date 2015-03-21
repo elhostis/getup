@@ -170,3 +170,7 @@ label.required:after {
 #preview-image{
   max-height: 100px;
 }
+
+.vignette{
+  width: 250px;
+}

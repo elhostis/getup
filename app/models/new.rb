@@ -11,7 +11,7 @@ class New < ActiveRecord::Base
         self.where('lower(news.title) LIKE ?', word_sql)
   }
 
-  mount_uploader :image, LogoUploader
+  #mount_uploader :image, LogoUploader
 
   def publishing(publish_action = true)
     return update_attributes({:publish => publish_action})

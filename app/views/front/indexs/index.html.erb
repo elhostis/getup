@@ -36,8 +36,8 @@
 			      			<li class="als-item">
 			      				<%= link_to front_news_index_path do %>
 				      				<div>
-				      				 	<% if new.image.url %>
-				    							<%= image_tag new.image.url(:logo_small), :alt => "" %>
+				      				 	<% unless new.image.blank? %>
+				    							<%= image_tag new.image, :alt => "", :class=>"vignette_news" %>
 				  							<% end %>
 				      					<%=new.title%>
 				      				</div>
