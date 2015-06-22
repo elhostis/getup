@@ -11,7 +11,6 @@
  * file per style scope.
  *
  *= require foundation
- *= require front/c3
  *= require front/override
  *= require front/custom
  *= require gritter

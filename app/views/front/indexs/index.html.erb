@@ -4,10 +4,9 @@
 	<%= javascript_include_tag "front/carousel_home.js" %>
 	<%= javascript_include_tag "front/jquery.als-1.7.min.js" %>
 <% end %>
-
-<div class="habillage">
-	<div class="row bg-secondary-color-blurred collapse">
-		<div class="small-12 medium-6 columns">
+<main>
+	<div class="row collapse">
+		<div class="small-12 columns">
 			<ul class="bxslider bxslider_fix">
 				<li>
 					<img src="<%=image_path("front/home/verticale_solution_-_pose_de_conduits7.jpg")%>">
@@ -24,7 +23,7 @@
 		</div>
 	</div>
 
-	<div class="row bg-secondary-color-blurred collapse">
+	<div class="row collapse">
 		<div class="small-12 medium-6 columns">
 			<% if @news.length > 0 %>
 				<section class="section-home-projects first-section bg-color-dark">
@@ -60,6 +59,5 @@
 			</div>
 		</div>
 	</div>
+</main>
 
-
-</div>

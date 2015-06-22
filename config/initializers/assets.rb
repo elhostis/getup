@@ -11,4 +11,7 @@ Rails.application.config.assets.precompile += %w( front/carousel.js )
 Rails.application.config.assets.precompile += %w( front/carousel_home.js )
 
 Rails.application.config.assets.precompile += %w( ckeditor/* )
+Rails.application.config.assets.precompile += %w( ie-spacer.gif )
+Rails.application.config.assets.precompile += %w( gritter.png )
+Rails.application.config.assets.precompile += %w( gritter-close.png )
 
