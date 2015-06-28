@@ -5,24 +5,94 @@
 	<%= javascript_include_tag "front/jquery.als-1.7.min.js" %>
 <% end %>
 <main>
-	<div class="row collapse">
-		<div class="small-12 columns">
-			<ul class="bxslider bxslider_fix">
-				<li>
-					<img src="<%=image_path("front/home/verticale_solution_-_pose_de_conduits7.jpg")%>">
-				</li>
-				<li>
-					<img src="<%=image_path("front/home/verticale_solution_-_relampage3.jpg")%>">
-				</li>
-			</ul>
-		</div>
-		<div class="small-12 medium-6 columns">
-			<div id="home">
-				ici un texte à mettre
+	<section id="home-slider">
+		<div class="row collapse">
+			<div class="small-12 columns">
+				<ul class="bxslider bxslider_fix">
+					<li>
+						<img src="<%=image_path("front/sample/slide1.jpg")%>">
+						<div class="home-slider-desc">
+							<h2><small>analyse, </small>maîtrise,</br>
+							sécurité <small>& accessibilité</small>
+							</h2>
+							<p>
+								Spécialistes des travaux d’accès difficile, nous nous impliquons chaque jour pour développer une relation de <mark>confiance</mark> avec nos clients.
+							</p>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div>
-	</div>
+	</section>
+	<section id="home-domain">
+		<div class="row">
+			<div class="small-12 columns">
+				<h2>
+					Domaines d’interventions
+				</h2>	
+				<ul id="list-domain" class="medium-block-grid-1 large-block-grid-3">
+					<li class="travaux">
+						<h3>Travaux urbains</h3>
+						<ul>
+							<li>Purge et mise en sécurité de façades</li>
+							<li>Traitement de fissures, reprises de maçonnerie, reprises de peinture  </li>
+							<li>Dépose et pose de conduits de ventilation, d’enseignes, de descentes pluviales</li>
+							<li>Lutte contre les nuisances volatiles</li>
+							<li>Démontage d’arbres, élagage, débroussaillage et purge de falaises</li>
+							<li>Vitrerie.</li>
+						</ul>
+					</li>
+					<li class="industrie">
+						<h3>Industrie</h3>
+						<ul>
+							<li>Nettoyage haute pression, purge de silos</li>
+							<li>Opérations de maintenance</li>
+							<li>Dépoussiérage par aspiration</li>
+							<li>Dépose et pose d’éléments divers</li>
+							<li>Travail en milieu confiné</li>
+							<li>Traitement anticorrosion, peinture.</li>
+						</ul>
+					</li>
+					<li class="securite">
+						<h3>Sécurité -Expertise</h3>
+						<ul>
+							<li>Expertises photographique et vidéo</li>
+							<li>Pose de lignes de vie, de points d’ancrages, de garde-corps.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section id="activities">
+		<div class="row collapse">
+			<div class="small-12 medium-6 columns">
+				<img src="<%=image_path("front/home/activity1.png")%>">
+			</div>
+			<div class="small-12 medium-6 columns">
+				Bâtiment /
+Nettoyage haute pression
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate, est vel varius convallis, sapien quam euismod enim, non condimentum massa est at enim. 
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam ut elementum urna. Ut id mi nec dui finibus congue. Mauris imperdiet, erat non tincidunt feugiat, dui odio lacinia risus, sit amet sollicitudin sapien nibh vitae est.
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="small-12 medium-6 columns">
+				Bâtiment /
+Entretien de vitrerie
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate, est vel varius convallis, sapien quam euismod enim, non condimentum massa est at enim. 
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam ut elementum urna. Ut id mi nec dui finibus congue. Mauris imperdiet, erat non tincidunt feugiat, dui odio lacinia risus, sit amet sollicitudin sapien nibh vitae est.
+			</div>
+			<div class="small-12 medium-6 columns">
+				<img src="<%=image_path("front/home/activity2.png")%>">
+			</div>
+		</div>
+	</section>
+	
 	<div class="row collapse">
 		<div class="small-12 medium-6 columns">
 			<% if @news.length > 0 %>

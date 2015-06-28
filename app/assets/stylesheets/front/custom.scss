@@ -4,11 +4,18 @@ Author: anthony hauata
 Author URI: www.fulgens.fr
 
 Designed by Julie Fredillon
+julie.fredillon@hotmail.fr
 */
 
+/* VAR */
 $dark : #25272b;
 $light : #fff;
 
+$mainColor : #fd4326;
+
+$textColor : #42454a;
+
+/* HEADER */
 #header-top {
 	height: 1.875rem;
 	background-color: $dark;
@@ -16,4 +23,196 @@ $light : #fff;
 #header-header {
 	height: 6.375rem;
 	background-color: $light;
+}
+#home-slider {
+
+}
+#logo {
+	position: absolute;
+	top: -1.875rem; // header-top height
+	left: 140px;
+	z-index: 100;
+}
+@media only screen and (max-width: 40.063em) {
+	#logo {
+		position: relative;
+		top: 50%; // header-top height
+		left: 50%;
+		margin-left: -45px;
+	}	
+}
+/* NAV */
+nav.top-bar {
+	height: 100%;
+	.name {
+		height:6.375rem; // header-header height
+		border-left: 1px solid #dfdfdf;
+	}
+	.top-bar-section li:not(.has-form) a:not(.button) {
+		font-size: 0.8125px;
+		font-weight: 300;
+		color: $textColor;
+		text-transform: uppercase;
+		line-height:6.375rem;
+		padding-left :1rem;
+		padding-right :1rem !important;
+	}
+	.top-bar-section li:not(.has-form) a:not(.button):hover {
+		background-color: $textColor;
+		color: #fff;
+	}
+	.top-bar-section li.has-dropdown:not(.has-form) > a:not(.button):after {
+		content: "";
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 6px 4.5px 0 4.5px;
+		border-color: $mainColor transparent transparent transparent;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -3px;
+		margin-top: 10px;
+	}
+	.top-bar-section .dropdown li {
+		height: 2.5625rem;
+		line-height: 2.5625rem;
+		float: left;
+	}
+	.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+		text-align: center;
+		text-transform: lowercase;
+		background-color: $textColor;
+		color: #fff;
+		line-height: 2.5625rem;
+		font-size: 0.75rem;
+	}
+	.top-bar-section li .dropdown {
+		left: 0;
+		right: auto;
+	}
+}
+/* section home-slider */
+#home-slider {
+	position: relative;
+	li {
+		position: relative;
+		.home-slider-desc {
+			z-index: 150;
+			color: #fff;
+			position: absolute;
+			top: 9.375rem;
+			left: 11.875rem;
+			padding-top: 3.125rem;
+			padding-bottom: 2.5rem;
+			width: 53.125rem;
+		}
+		.home-slider-desc:after,
+		.home-slider-desc:before {
+			content:"";
+			height: 1px;
+			background-color: #fff;
+			width: 30rem;
+			position: absolute;
+			left: 0.625rem;
+		}
+		.home-slider-desc:after {
+			top:0px;
+		}
+		.home-slider-desc:before {
+			bottom: 0px;
+		}
+		h2 {
+			font-size: 3.5rem;
+			font-weight: 900;
+			color: #fff;
+			line-height: 3.6875rem;
+			small {
+				font-size: 3.625rem;
+				font-weight: 400;
+				text-transform: uppercase;
+				color: #fff;
+			}
+		}
+		p {
+			font-size: 1.375rem;
+			margin: 0;
+		}
+		mark {
+			color: $mainColor;
+			background-color: transparent;
+		}
+	}
+	li:after {
+		content: "";
+		background-color: $dark;
+		opacity: 0.9;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 100;
+	}
+}
+#home-slider:after {
+	content: "";
+	background-color: $dark;
+	opacity: 0.9;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+/* section domaine */
+#home-domain {
+	position: relative;
+	h2 {
+		font-size: 1.875rem;
+		text-align: center;
+		color: $mainColor;
+		font-weight: 300;
+		height: 7.5rem;
+		line-height: 7.5rem;
+	}
+	ul#list-domain {
+		margin: 0 8.75em;
+		ul {
+			list-style-type:disc;
+			color: $mainColor; 
+			margin-right: 2rem;
+			margin-left: 2rem;
+		}
+	}
+	h3 {
+		font-size: 1.5625rem;
+		font-weight: 300;
+		color: $mainColor;
+		line-height: 3.75rem;
+		text-align: center;
+		padding-top: 7.5rem;
+	}
+	li {
+		color: $textColor;
+		font-size: 0.8125rem;
+	}
+	li.travaux h3 {
+		background: url("/assets/front/home/ico-travaux-urbains.png") top center no-repeat;
+	}
+	li.industrie h3 {
+		background: url("/assets/front/home/ico-industrie.png") top center no-repeat;
+	}
+	li.securite h3 {
+		background: url("/assets/front/home/ico-securite.png") top center no-repeat;
+	}
+}
+#home-domain:before {
+	content: "";
+	background-color: #f3f3f3;
+	width: 100%;
+	height: calc(100% - 180px);
+	position: absolute;
+	top: 180px;
+	left: 0;
 }

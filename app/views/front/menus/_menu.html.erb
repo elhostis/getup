@@ -1,14 +1,42 @@
-<ul class="center">
+<ul class="right">
 	<% menu.each do |activite| %>
-		<li>
-			<%= link_to raw(activite.title.slice(3,activite.title.length)), front_activite_path(activite.slug) %>
-			<!--<ul class="dropdown">
-				<% activite.sousactivites.each do |sousactivite| %>
-					<li>
-						<%= link_to sousactivite.title, "#" %>
-					</li>
-				<% end %>
-			</ul>-->
-		</li>
+	<li class="has-dropdown"><!--  ANH if sous menu class has-dropdown if actif class active-->
+		<span>
+		<%= link_to raw(activite.title.slice(3,activite.title.length)), front_activite_path(activite.slug) %>
+			<ul class="dropdown">
+			<% activite.sousactivites.each do |sousactivite| %>
+				<li class="active"><!-- if actif class active -->
+					<%= link_to sousactivite.title, "#" %>
+				</li>
+			<% end %>
+			</ul>
+		</span>
+	</li>
 	<% end %>
+	<li class="name has-dropdown">
+		<a href="#"><span>bâtiment</span></a>
+		<ul class="dropdown">
+			<li class=""><!-- if actif class active -->
+				<a href="#"><span>Entretien de vitrerie</span></a>
+			</li>
+			<li class=""><!-- if actif class active -->
+				<a href="#"><span>Nettoyage haute pression</span></a>
+			</li>
+		</ul>
+	</li>
+	<li class="name">
+		<a href="#"><span>industrie</span></a>
+	</li>
+	<li class="name">
+		<a href="#"><span>divers</span></a>
+	</li>
+	<li class="name">
+		<a href="#"><span>références</span></a>
+	</li>
+	<li class="name">
+		<a href="#"><span>actus</span></a>
+	</li>
+	<li class="name">
+		<a href="#"><span>contact</span></a>
+	</li>
 </ul>
