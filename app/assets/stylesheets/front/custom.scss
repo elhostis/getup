@@ -15,6 +15,7 @@ $mainColor : #fd4326;
 
 $textColor : #42454a;
 
+.spacer {clear:both;}
 /* HEADER */
 #header-top {
 	height: 1.875rem;
@@ -215,4 +216,125 @@ nav.top-bar {
 	position: absolute;
 	top: 180px;
 	left: 0;
+}
+#home-activities {
+	.columns {
+		overflow: hidden;
+		mark {
+			background-color: transparent;
+			text-transform: uppercase;
+			font-size: 20px;
+			font-weight: 200;
+		}
+		h3 {
+			color: #fd4326;
+			font-weight: 400;
+			font-size: 30px;
+		}
+		.text {
+			padding: 70px 30px 30px;
+		}
+	}
+	.visuel img {
+		height: 100%;
+		width: auto;
+		position: relative;
+	}
+	.columns .visuel:after {
+		content:"";
+		width: 0;
+		height: 0;
+		border-style: solid;
+		position: absolute;
+		top: 50%;
+		margin-top: -44px;
+	}
+	.columns:nth-child(1) .visuel:after {
+		border-width: 44px 44px 44px 0;
+		border-color: transparent #fff transparent transparent;
+		right: 0;
+	}
+	.columns:nth-child(2) .visuel:after {
+		border-width: 44px 0 44px 44px;
+		border-color: transparent transparent transparent #fff;
+		left: 0;
+	}
+	.columns .hover {
+		position: relative;
+	}
+	.columns:hover .hover:after {
+		content: "";
+		background-color: rgba(37,39,43,0.9);
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		position: absolute;
+		transition: background-color 2s;
+	}
+	.columns .hover:after {
+		transition: background-color 2s;
+	}
+}
+#home-references {
+	background-color: #fd4326;
+	h2 {
+		color: #fff;
+		font-weight: 200;
+		font-size: 30px;
+		text-align: center;
+	}
+}
+#home-actualites {
+	.wrapper {
+		max-width: 62.5rem;
+		margin: 0 auto;
+	}
+	background-color: #f3f3f3;
+	h2 {
+		color: #42454a;
+		font-weight: 200;
+		font-size: 30px;
+		text-align: center;
+	}
+	.actu {
+		margin-bottom: 1.875rem;
+		.visuel {
+			img {
+				width: 100%;
+			}
+		}
+		.content {
+			margin: 0 2.1875rem;
+			font-size: 15px;
+			h3 {
+				font-size: 20px;
+				color: #fd4326;
+				font-weight: 200;
+				margin: 1rem 0;
+			}
+		}	
+		.footer {
+			a.suite {
+				background-color: $dark;
+				display: block;
+				height: 1.8125rem;
+				line-height: 1.8125rem;
+				width: 7rem;
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 0.8125rem;
+				text-align: center;
+				float: right;
+			}
+		}	
+	}
+	.actu.small {
+		.visuel  {
+			margin: 0 2.4375rem;
+		}
+		.content  {
+			margin: 0 2.4375rem;
+		}
+	}
 }

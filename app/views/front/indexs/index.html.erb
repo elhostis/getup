@@ -64,35 +64,137 @@
 			</div>
 		</div>
 	</section>
-	<section id="activities">
+	<section id="home-activities">
 		<div class="row collapse">
 			<div class="small-12 medium-6 columns">
-				<img src="<%=image_path("front/home/activity1.png")%>">
+				<div class="visuel">
+					<div class="hover">
+						<img class="visuel" src="<%=image_path("front/home/activity1.png")%>">
+					</div>
+				</div>
 			</div>
 			<div class="small-12 medium-6 columns">
-				Bâtiment /
-Nettoyage haute pression
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate, est vel varius convallis, sapien quam euismod enim, non condimentum massa est at enim. 
-
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam ut elementum urna. Ut id mi nec dui finibus congue. Mauris imperdiet, erat non tincidunt feugiat, dui odio lacinia risus, sit amet sollicitudin sapien nibh vitae est.
+				<div class="text">
+					<mark>Bâtiment /</mark>
+					<h3>Nettoyage haute pression</h3>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate, est vel varius convallis, sapien quam euismod enim, non condimentum massa est at enim. 
+					</p>
+					<p>
+						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam ut elementum urna. Ut id mi nec dui finibus congue. Mauris imperdiet, erat non tincidunt feugiat, dui odio lacinia risus, sit amet sollicitudin sapien nibh vitae est.
+					</p>
+				</div>
 			</div>
 		</div>
 		<div class="row collapse">
 			<div class="small-12 medium-6 columns">
-				Bâtiment /
-Entretien de vitrerie
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate, est vel varius convallis, sapien quam euismod enim, non condimentum massa est at enim. 
-
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam ut elementum urna. Ut id mi nec dui finibus congue. Mauris imperdiet, erat non tincidunt feugiat, dui odio lacinia risus, sit amet sollicitudin sapien nibh vitae est.
+				<div class="text">
+					<mark>Bâtiment /</mark>
+					<h3>Entretien de vitrerie</h3>
+						<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate, est vel varius convallis, sapien quam euismod enim, non condimentum massa est at enim. 
+					</p>
+					<p>
+						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam ut elementum urna. Ut id mi nec dui finibus congue. Mauris imperdiet, erat non tincidunt feugiat, dui odio lacinia risus, sit amet sollicitudin sapien nibh vitae est.
+					</p>
+				</div>
 			</div>
 			<div class="small-12 medium-6 columns">
-				<img src="<%=image_path("front/home/activity2.png")%>">
+				<div class="visuel">
+					<div class="hover">
+						<img class="visuel" src="<%=image_path("front/home/activity2.png")%>">
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
-	
+	<section id="home-references">
+		<div class="row collapse">
+			<div class="small-12">
+				<h2>Références</h2>
+			</div>
+		</div>
+	</section>
+	<section id="home-actualites">
+		<div class="wrapper">
+			<div class="row collapse">
+				<div class="small-12 columns">
+					<h2>Actualités</h2>
+				</div>
+			</div>
+			<div class="row collapse">
+				<div class="small-12 medium-12 columns">
+					<div class="actu">
+						<div class="visuel">
+							<img src="<%=image_path("front/actus/actu1.png")%>">
+						</div>
+						<div class="content">
+							<h3>
+								Titre de l’Actu
+							</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae justo finibus, elementum lac us vitae, luctus magna. Proin scelerisque, tellus ac blandit tincidunt, risus arcu hendrerit erat, et tempus nibh nulla eget neque.
+							</p>
+						</div>
+						<div class="footer">
+							<div class="social-btns">
+								<%= render :partial => 'social_script' %>
+							</div>
+							<a href="" class="suite">Lire la suite</a>
+						</div>
+						<div class="spacer"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row collapse">
+				<div class="small-12 medium-6 columns">
+					<div class="actu small">
+						<div class="visuel">
+							<img src="<%=image_path("front/actus/actu1.png")%>">
+						</div>
+						<div class="content">
+							<h3>
+								Titre de l’Actu
+							</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae justo finibus, elementum lac us vitae, luctus magna. Proin scelerisque, tellus ac blandit tincidunt, risus arcu hendrerit erat, et tempus nibh nulla eget neque.
+							</p>
+						</div>
+						<div class="footer">
+							<div class="social-btns">
+								<%= render :partial => 'social_script' %>
+							</div>
+							<a href="" class="suite">Lire la suite</a>
+						</div>
+						<div class="clear-fix"></div>
+					</div>
+				</div>
+				<div class="small-12 medium-6 columns">
+					<div class="actu small">
+						<div class="visuel">
+							<img src="<%=image_path("front/actus/actu1.png")%>">
+						</div>
+						<div class="content">
+							<h3>
+								Titre de l’Actu
+							</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae justo finibus, elementum lac us vitae, luctus magna. Proin scelerisque, tellus ac blandit tincidunt, risus arcu hendrerit erat, et tempus nibh nulla eget neque.
+							</p>
+						</div>
+						<div class="footer">
+							<div class="social-btns">
+								<%= render :partial => 'social_script' %>
+							</div>
+							<a href="" class="suite">Lire la suite</a>
+						</div>
+						<div class="spacer"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<div class="row collapse">
 		<div class="small-12 medium-6 columns">
 			<% if @news.length > 0 %>
@@ -119,14 +221,6 @@ Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac tu
 					</div>
 				</section>
 			<% end %>
-		</div>
-		<div class="small-12 medium-6 columns">
-			<div class="block-share-container">
-				<h4 class="text-center"><span>Partager cette page</span></h4>
-				<div class="social-btns">
-					<%= render :partial => 'social_script' %>
-				</div>
-			</div>
 		</div>
 	</div>
 </main>
