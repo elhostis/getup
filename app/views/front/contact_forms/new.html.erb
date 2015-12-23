@@ -1,63 +1,51 @@
-<div class="habillage">
-  <section id="form-contact">
-    <div class="row first-section bg-color-light-blurred">
-      <div class="row">
-        <div class="small-11 small-centered columns">
-          <header class="subhead" id="overview">
-            <h1 class="text-center">Nous contacter</h1>
-          </header>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="small-11 medium-6 small-centered columns">
-          GETUP<br/>
-          Entreprise de travaux d'accès difficile<br/>
+<h1 class="text-center">Nous contacter</h1>
+<div class="row">
+	<div class="small-11 medium-6 small-centered columns">
+		GETUP<br/>
+		Entreprise de travaux d'accès difficile<br/>
 
 
-          ZA La Forge - 8, rue des Tisserands<br/>
-          35830 BETTON<br/>
+		ZA La Forge - 8, rue des Tisserands<br/>
+		35830 BETTON<br/>
 
-          contact@get-up.fr<br/>
+		contact@get-up.fr<br/>
 
-          Guillaume Gallais<br/>
-          06.78.23.63.52<br/>
-          02.23.27.50.13<br/>
+		Guillaume Gallais<br/>
+		06.78.23.63.52<br/>
+		02.23.27.50.13<br/>
 
-        </div>
-      </div>
+	</div>
+</div>
 
-      <hr/>
+<hr/>
 
-      <div class="row">
-        <div class="small-11 medium-6 small-centered columns">
-          <%= form_tag({action: "create"}) do %>
-            <div class="control-group">
-              Nom
-              <div class="controls">
-                <%= text_field 'contact', 'firstname' %>
-              </div>
-            </div>
-            <div class="control-group">
-              Email
-              <div class="controls">
-                <%= text_field 'contact', 'email' %>
-              </div>
-            </div>
-            <div class="control-group">
-              Message
-              <div class="controls">
-                <%= text_area 'contact', 'message' %>
-              </div>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="controls">
-              <%= submit_tag("Envoyer") %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </section>
+<div class="row">
+	<div class="small-11 medium-6 small-centered columns">
+		<%= form_tag({action: "create"}) do %>
+			<div class="control-group">
+				Nom
+				<div class="controls">
+					<%= text_field 'contact', 'firstname' %>
+				</div>
+			</div>
+			<div class="control-group">
+				Email
+				<div class="controls">
+					<%= text_field 'contact', 'email' %>
+				</div>
+			</div>
+			<div class="control-group">
+				Message
+				<div class="controls">
+					<%= text_area 'contact', 'message' %>
+				</div>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<%= submit_tag("Envoyer") %>
+			</div>
+		</div>
+	<% end %>
 </div>

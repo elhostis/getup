@@ -1,10 +1,10 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use mysql2 as the database for Active Record
-gem 'mysql2', '~> 0.3.16'
+gem 'mysql2'
 # Use PG for heroku
 gem 'pg'
 
@@ -34,9 +34,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-gem 'unicorn'
+#gem 'unicorn'
 #gem 'puma'
-#gem 'thin'
+gem 'thin'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -97,3 +97,5 @@ gem 'sendgrid-ruby'
 gem 'sanitize'
 
 gem 'ckeditor'
+  
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]

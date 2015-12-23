@@ -19,6 +19,17 @@
 								Spécialistes des travaux d’accès difficile, nous nous impliquons chaque jour pour développer une relation de <mark>confiance</mark> avec nos clients.
 							</p>
 						</div>
+						<li>
+						<img src="http://www.online-image-editor.com/styles/2014/images/example_image.png">
+						<div class="home-slider-desc">
+							<h2><small>Guillaume, </small>un plan Q,</br>
+							<small>à toute occasion</small>
+							</h2>
+							<p>
+								Où vous voulez, quand vous voulez, je me rends disponible d'un simple contact <mark>avec photo</mark> évidemment.
+							</p>
+						</div>
+					</li>
 					</li>
 				</ul>
 			</div>
@@ -31,83 +42,66 @@
 					Domaines d’interventions
 				</h2>	
 				<ul id="list-domain" class="medium-block-grid-1 large-block-grid-3">
-					<li class="travaux">
-						<h3>Travaux urbains</h3>
-						<ul>
-							<li>Purge et mise en sécurité de façades</li>
-							<li>Traitement de fissures, reprises de maçonnerie, reprises de peinture  </li>
-							<li>Dépose et pose de conduits de ventilation, d’enseignes, de descentes pluviales</li>
-							<li>Lutte contre les nuisances volatiles</li>
-							<li>Démontage d’arbres, élagage, débroussaillage et purge de falaises</li>
-							<li>Vitrerie.</li>
-						</ul>
-					</li>
-					<li class="industrie">
-						<h3>Industrie</h3>
-						<ul>
-							<li>Nettoyage haute pression, purge de silos</li>
-							<li>Opérations de maintenance</li>
-							<li>Dépoussiérage par aspiration</li>
-							<li>Dépose et pose d’éléments divers</li>
-							<li>Travail en milieu confiné</li>
-							<li>Traitement anticorrosion, peinture.</li>
-						</ul>
-					</li>
-					<li class="securite">
-						<h3>Sécurité -Expertise</h3>
-						<ul>
-							<li>Expertises photographique et vidéo</li>
-							<li>Pose de lignes de vie, de points d’ancrages, de garde-corps.</li>
-						</ul>
-					</li>
+					<% @activite.each do |activite| %>
+						<li class="<%=activite.slug[3..-1]%>">
+							<h3><%=activite.title[3..-1]%></h3>
+							<ul>
+								<% activite.sousactivites.scope_published(true).order("title").each do |ssactivite| %>
+									<li><%=ssactivite.title[3..-1]%></li>
+								<% end %>
+							</ul>
+						</li>
+					<% end %>
 				</ul>
 			</div>
 		</div>
 	</section>
-	<section id="home-activities">
-		<div class="row collapse">
-			<div class="small-12 medium-6 columns">
-				<div class="visuel">
-					<div class="hover">
-						<img class="visuel" src="<%=image_path("front/home/activity1.png")%>">
+	<% @activite.each do |activite| %>
+		<section id="home-references">
+			<div class="row collapse">
+				<div class="small-12">
+					<h2><%=activite.title[3..-1]%></h2>
+				</div>
+			</div>
+		</section>
+		<section id="home-activities">
+			<% left = true %>
+			<% activite.sousactivites.scope_published(true).order("title").each do |ssactivite| %>
+				<div class="row collapse">
+					<% if left %>
+						<div class="small-12 medium-6 columns">
+							<ul class="bxslider2 bxslider_fix">
+								<li>
+									<div class="visuel">
+										<div class="hover">
+											<img class="visuel" src="<%=image_path("front/home/activity1.png")%>">
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					<% end %>
+					<div id="nettoyage" class="small-12 medium-6 columns">
+						<div class="text">
+							<mark><%=activite.title[3..-1]%> /</mark>
+							<h3><%=ssactivite.title[3..-1]%></h3>
+							<%=raw ssactivite.description%>
+						</div>
 					</div>
+					<% unless left %>
+						<div class="small-12 medium-6 columns">
+							<div class="visuel">
+								<div class="hover">
+									<img class="visuel" src="<%=image_path("front/home/activity1.png")%>">
+								</div>
+							</div>
+						</div>
+					<% end %>
+					<% left = !left %>
 				</div>
-			</div>
-			<div class="small-12 medium-6 columns">
-				<div class="text">
-					<mark>Bâtiment /</mark>
-					<h3>Nettoyage haute pression</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate, est vel varius convallis, sapien quam euismod enim, non condimentum massa est at enim. 
-					</p>
-					<p>
-						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam ut elementum urna. Ut id mi nec dui finibus congue. Mauris imperdiet, erat non tincidunt feugiat, dui odio lacinia risus, sit amet sollicitudin sapien nibh vitae est.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row collapse">
-			<div class="small-12 medium-6 columns">
-				<div class="text">
-					<mark>Bâtiment /</mark>
-					<h3>Entretien de vitrerie</h3>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate, est vel varius convallis, sapien quam euismod enim, non condimentum massa est at enim. 
-					</p>
-					<p>
-						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam ut elementum urna. Ut id mi nec dui finibus congue. Mauris imperdiet, erat non tincidunt feugiat, dui odio lacinia risus, sit amet sollicitudin sapien nibh vitae est.
-					</p>
-				</div>
-			</div>
-			<div class="small-12 medium-6 columns">
-				<div class="visuel">
-					<div class="hover">
-						<img class="visuel" src="<%=image_path("front/home/activity2.png")%>">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+			<% end %>
+		</section>
+	<% end %>
 	<section id="home-references">
 		<div class="row collapse">
 			<div class="small-12">
@@ -194,7 +188,25 @@
 			</div>
 		</div>
 	</section>
+	<section id="home-contact">
+		<div class="row">
+			<div class="small-12 medium-6 columns">
+			  GETUP<br/>
+			  Entreprise de travaux d'accès difficile<br/>
 
+
+			  ZA La Forge - 8, rue des Tisserands<br/>
+			  35830 BETTON<br/>
+
+			  contact@get-up.fr<br/>
+
+			  Guillaume Gallais<br/>
+			  06.78.23.63.52<br/>
+			  02.23.27.50.13<br/>
+
+			</div>
+		  </div>
+	</section>
 	<div class="row collapse">
 		<div class="small-12 medium-6 columns">
 			<% if @news.length > 0 %>
