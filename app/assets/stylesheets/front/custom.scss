@@ -81,12 +81,17 @@ nav.top-bar {
 		float: left;
 	}
 	.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
-		text-align: center;
-		text-transform: lowercase;
+		text-align: left;
+		text-transform: none;
 		background-color: $textColor;
 		color: #fff;
 		line-height: 2.5625rem;
 		font-size: 0.75rem;
+
+	}
+	.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button):hover {
+		color: $mainColor;
+
 	}
 	.top-bar-section li .dropdown {
 		left: 0;
@@ -184,6 +189,9 @@ nav.top-bar {
 			color: $mainColor; 
 			margin-right: 2rem;
 			margin-left: 2rem;
+		}
+		li {
+			color: $mainColor;
 		}
 	}
 	h3 {
@@ -293,6 +301,12 @@ nav.top-bar {
 
 	ul {
 		list-style: none;
+	}
+
+	li {
+		float: left;
+		padding: 20px;
+		width: 25%;
 	}
 }
 #home-actualites {

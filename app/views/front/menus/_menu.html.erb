@@ -1,7 +1,7 @@
 <ul class="right">
 	<% menu.each do |activite| %>
 		<li class="name has-dropdown">
-			<a href="#"><span><%=activite.title[3..-1]%></span></a>
+			<a class="scrollTo" href="#<%=activite.slug%>"><span><%=activite.title[3..-1]%></span></a>
 			<ul class="dropdown">
 			<% activite.sousactivites.scope_published(true).order("title").each do |sousactivite| %>
 					<li>
@@ -13,12 +13,12 @@
 		</li>
 	<% end %>
 	<li class="name">
-		<a class="scrollTo" href="#"><span>références</span></a>
+		<a class="scrollTo" href="#home-references"><span>références</span></a>
 	</li>
 	<li class="name">
 		<a class="scrollTo" href="#home-actualites"><span>actus</span></a>
 	</li>
 	<li class="name">
-		<a class="scrollTo" href="#"><span>contact</span></a>
+		<a class="scrollTo" href="#home-contact"><span>contact</span></a>
 	</li>
 </ul>
