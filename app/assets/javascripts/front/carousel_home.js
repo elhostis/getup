@@ -1,13 +1,20 @@
 $(document).ready(function(){
 // carousel
-  $(function() {
-    $('.bxslider').bxSlider({
-        infiniteLoop: true,
-        auto: true,
-        pager: false,
-        controls: false,
-        mode: 'fade'
-    });
+  $('.bxslider').bxSlider({
+    infiniteLoop: true,
+    auto: true,
+    pager: false,
+    controls: false,
+    mode: 'fade'
+  });
+
+  $('.bxslider2').bxSlider({
+    infiniteLoop: true,
+    hideControlOnEnd: true,
+    auto: false,
+    pager: true,
+    nextText: '<i class="fa fa-chevron-circle-right fa-3x"></i>',
+    prevText: '<i class="fa fa-chevron-circle-left fa-3x"></i>'
   });
 
   $("#home_news").als({
@@ -15,7 +22,7 @@ $(document).ready(function(){
     scrolling_items: 10,
     orientation: "horizontal",
     circular: "yes",
-    autoscroll: "yes",
+    autoscroll: "no",
     interval: 5000
   });
 

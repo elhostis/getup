@@ -194,9 +194,15 @@ nav.top-bar {
 		text-align: center;
 		padding-top: 7.5rem;
 	}
+	h3 > a {
+		color: $mainColor;
+	}
 	li {
 		color: $textColor;
 		font-size: 0.8125rem;
+	}
+	li > a {
+		color: $textColor;
 	}
 	li.travaux_urbains h3 {
 		background: url("/assets/front/home/ico-travaux-urbains.png") top center no-repeat;
@@ -283,6 +289,10 @@ nav.top-bar {
 		font-weight: 200;
 		font-size: 30px;
 		text-align: center;
+	}
+
+	ul {
+		list-style: none;
 	}
 }
 #home-actualites {

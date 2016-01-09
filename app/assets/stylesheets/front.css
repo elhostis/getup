@@ -14,6 +14,7 @@
  *= require front/override
  *= require front/custom
  *= require gritter
+ *= require jquery.bxslider
  *
 */
 
@@ -32,27 +33,22 @@
 .als-container {
   position: relative;
   width: 100%;
-  margin: 0px auto;
+  margin: 0px;
   z-index: 0;
 }
 
 .als-viewport {
   position: relative;
   overflow: hidden;
-  margin: 0px auto;
+  margin: 0px;
 }
 
 .als-wrapper {
-  position: relative;
   list-style: none;
 }
 
 .als-item {
-  position: relative;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  float: left;
+
 }
 
 .als-prev, .als-next {

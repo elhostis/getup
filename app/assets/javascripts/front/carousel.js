@@ -20,6 +20,14 @@ $(document).ready(function(){
   			prevText: '<i class="fa fa-chevron-circle-left fa-3x"></i>',
   			pagerCustom: '#bx-pager'
 		});
+
+		console.log("bien la");
+		$('.slider1').bxSlider({
+	    slideWidth: 200,
+	    minSlides: 2,
+	    maxSlides: 3,
+	    slideMargin: 10
+	  });
 	});
 
 

@@ -44,10 +44,10 @@
 				<ul id="list-domain" class="medium-block-grid-1 large-block-grid-3">
 					<% @activite.each do |activite| %>
 						<li class="<%=activite.slug[3..-1]%>">
-							<h3><%=activite.title[3..-1]%></h3>
+							<h3><a class="scrollTo" href="#<%=activite.slug%>"><%=activite.title[3..-1]%></a></h3>
 							<ul>
 								<% activite.sousactivites.scope_published(true).order("title").each do |ssactivite| %>
-									<li><%=ssactivite.title[3..-1]%></li>
+									<li><a class="scrollTo" href="#<%=ssactivite.slug%>"><%=ssactivite.title[3..-1]%></a></li>
 								<% end %>
 							</ul>
 						</li>
@@ -58,7 +58,7 @@
 	</section>
 	<% @activite.each do |activite| %>
 		<section id="home-references">
-			<div class="row collapse">
+			<div class="row collapse" id="<%=activite.slug%>">
 				<div class="small-12">
 					<h2><%=activite.title[3..-1]%></h2>
 				</div>
@@ -71,17 +71,19 @@
 					<% if left %>
 						<div class="small-12 medium-6 columns">
 							<ul class="bxslider2 bxslider_fix">
-								<li>
-									<div class="visuel">
-										<div class="hover">
-											<img class="visuel" src="<%=image_path("front/home/activity1.png")%>">
+								<% ssactivite.sousactivite_images.each do |image| %>
+									<li>
+										<div class="visuel">
+											<div class="">
+												<img class="visuel" src="<%=image.image%>">
+											</div>
 										</div>
-									</div>
-								</li>
+									</li>
+								<% end %>
 							</ul>
 						</div>
 					<% end %>
-					<div id="nettoyage" class="small-12 medium-6 columns">
+					<div id="<%=ssactivite.slug%>" class="small-12 medium-6 columns">
 						<div class="text">
 							<mark><%=activite.title[3..-1]%> /</mark>
 							<h3><%=ssactivite.title[3..-1]%></h3>
@@ -90,11 +92,17 @@
 					</div>
 					<% unless left %>
 						<div class="small-12 medium-6 columns">
-							<div class="visuel">
-								<div class="hover">
-									<img class="visuel" src="<%=image_path("front/home/activity1.png")%>">
-								</div>
-							</div>
+							<ul class="bxslider2 bxslider_fix">
+								<% ssactivite.sousactivite_images.each do |image| %>
+									<li>
+										<div class="visuel">
+											<div class="">
+												<img class="visuel" src="<%=image.image%>">
+											</div>
+										</div>
+									</li>
+								<% end %>
+							</ul>
 						</div>
 					<% end %>
 					<% left = !left %>
@@ -106,6 +114,17 @@
 		<div class="row collapse">
 			<div class="small-12">
 				<h2>Références</h2>
+				<ul>
+					<li>
+						<img src="https://www.iraiser.eu/wp-content/uploads/2015/02/unicef.png">
+					</li>
+					<li>
+						<img src="https://www.iraiser.eu/wp-content/uploads/2015/02/oxfam.png">
+					</li>
+					<li>
+						<img src="hhttps://www.iraiser.eu/wp-content/uploads/2015/02/msf.png">
+					</li>
+				</ul>
 			</div>
 		</div>
 	</section>
@@ -116,75 +135,91 @@
 					<h2>Actualités</h2>
 				</div>
 			</div>
+
+
 			<div class="row collapse">
-				<div class="small-12 medium-12 columns">
-					<div class="actu">
-						<div class="visuel">
-							<img src="<%=image_path("front/actus/actu1.png")%>">
-						</div>
-						<div class="content">
-							<h3>
-								Titre de l’Actu
-							</h3>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae justo finibus, elementum lac us vitae, luctus magna. Proin scelerisque, tellus ac blandit tincidunt, risus arcu hendrerit erat, et tempus nibh nulla eget neque.
-							</p>
-						</div>
-						<div class="footer">
-							<div class="social-btns">
-								<%= render :partial => 'social_script' %>
+				<% left = true %>
+				<% @news.each do |news| %>
+					<div class="small-12 medium-6 columns">
+						<div class="actu small">
+							<% unless news.image.blank? %>
+								<div class="visuel">
+									<img src="<%=news.image%>">
+								</div>
+							<% end %>
+							<div class="content">
+								<h3>
+									<%= news.title %>
+								</h3>
+								<p>
+									<%= news.intro %>
+								</p>
 							</div>
-							<a href="" class="suite">Lire la suite</a>
+							<div class="footer">
+								<div class="social-btns">
+									<%= render :partial => 'social_script' %>
+								</div>
+							</div>
+							<% if left %>
+								<div class="clear-fix"></div>
+							<% else %>
+								<div class="spacer"></div>
+							<% end %>
 						</div>
-						<div class="spacer"></div>
 					</div>
-				</div>
+					<% left = !left %>
+				<% end %>
 			</div>
+
+
+
+
 			<div class="row collapse">
-				<div class="small-12 medium-6 columns">
-					<div class="actu small">
-						<div class="visuel">
-							<img src="<%=image_path("front/actus/actu1.png")%>">
-						</div>
-						<div class="content">
-							<h3>
-								Titre de l’Actu
-							</h3>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae justo finibus, elementum lac us vitae, luctus magna. Proin scelerisque, tellus ac blandit tincidunt, risus arcu hendrerit erat, et tempus nibh nulla eget neque.
-							</p>
-						</div>
-						<div class="footer">
-							<div class="social-btns">
-								<%= render :partial => 'social_script' %>
+
+			<div class="als-container" id="home_news">
+				<span class="als-prev"><%= image_tag "front/thin_left_arrow_333.png", :alt => "Précédent" %></span>
+				<div class="als-viewport">
+			    <ul class="als-wrapper">
+
+				<% left = true %>
+				<% @news.each do |news| %>
+					<li class="als-item small-12 medium-6 columns">
+					<div class="">
+						<div class="actu small">
+							<% unless news.image.blank? %>
+								<div class="visuel">
+									<img src="<%=news.image%>">
+								</div>
+							<% end %>
+							<div class="content">
+								<h3>
+									<%= news.title %>
+								</h3>
+								<p>
+									<%= news.intro %>
+								</p>
 							</div>
-							<a href="" class="suite">Lire la suite</a>
-						</div>
-						<div class="clear-fix"></div>
-					</div>
-				</div>
-				<div class="small-12 medium-6 columns">
-					<div class="actu small">
-						<div class="visuel">
-							<img src="<%=image_path("front/actus/actu1.png")%>">
-						</div>
-						<div class="content">
-							<h3>
-								Titre de l’Actu
-							</h3>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae justo finibus, elementum lac us vitae, luctus magna. Proin scelerisque, tellus ac blandit tincidunt, risus arcu hendrerit erat, et tempus nibh nulla eget neque.
-							</p>
-						</div>
-						<div class="footer">
-							<div class="social-btns">
-								<%= render :partial => 'social_script' %>
+							<div class="footer">
+								<div class="social-btns">
+									<%= render :partial => 'social_script' %>
+								</div>
 							</div>
-							<a href="" class="suite">Lire la suite</a>
+							<% if left %>
+								<div class="clear-fix"></div>
+							<% else %>
+								<div class="spacer"></div>
+							<% end %>
 						</div>
-						<div class="spacer"></div>
 					</div>
-				</div>
+					</li>
+					<% left = !left %>
+				<% end %>
+
+					</ul>
+			 	</div>
+				<span class="als-next"><%= image_tag "front/thin_right_arrow_333.png", :alt => "Suivant" %></span>
+			</div>
+
 			</div>
 		</div>
 	</section>
@@ -207,33 +242,6 @@
 			</div>
 		  </div>
 	</section>
-	<div class="row collapse">
-		<div class="small-12 medium-6 columns">
-			<% if @news.length > 0 %>
-				<section class="section-home-projects first-section bg-color-dark">
-					<div class="als-container" id="home_news">
-						<span class="als-prev"><%= image_tag "front/thin_left_arrow_333.png", :alt => "Précédent" %></span>
-			  		<div class="als-viewport">
-			    		<ul class="als-wrapper">
-			    			<% @news.each do |new| %>
-			      			<li class="als-item">
-			      				<%= link_to front_news_index_path do %>
-				      				<div>
-				      				 	<% unless new.image.blank? %>
-				    							<%= image_tag new.image, :alt => "", :class=>"vignette_news" %>
-				  							<% end %>
-				      					<%=new.title%>
-				      				</div>
-				      			<% end %>
-			      			</li>
-			      		<% end %>
-			    		</ul>
-			  		</div>
-			  		<span class="als-next"><%= image_tag "front/thin_right_arrow_333.png", :alt => "Suivant" %></span>
-					</div>
-				</section>
-			<% end %>
-		</div>
-	</div>
+	
 </main>
 

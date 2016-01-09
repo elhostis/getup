@@ -5,7 +5,7 @@
 			<ul class="dropdown">
 			<% activite.sousactivites.scope_published(true).order("title").each do |sousactivite| %>
 					<li>
-						<a class="scrollTo" href="#nettoyage"><span><%=sousactivite.title[3..-1]%></span></a>
+						<a class="scrollTo" href="#<%=sousactivite.slug%>"><span><%=sousactivite.title[3..-1]%></span></a>
 					</li>
 				<% end %>
 				</ul>
