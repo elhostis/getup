@@ -1,27 +1,30 @@
-<footer>
+<footer id="footer">
 	<div class="row">
-		<nav class="top-bar bottom-bar" data-topbar role="navigation">
-			<ul class="title-area">
-				<li class="name"></li>
-				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-				<li class="toggle-topbar menu-icon" ><a href=""><span>Menu</span></a></li>
-			</ul>
-			<section class="top-bar-section">
-				<ul class="right">
-					<li>
-						<%= link_to "Actus", front_news_index_path %>
-					</li>
-					<li>
-						<%= link_to "Références", front_references_path %>
-					</li>
-					<li>
-						<%= link_to "Plan du site", front_plandusite_path %>
-					</li>
-					<li>
-						<%= link_to "Contact", new_front_contact_form_path %>
-					</li>
-				</ul>
-			</section>
-		</nav>
+		<div class="small-6 columns small-centered">
+			<div class="row">
+				<div class="small-4 columns">
+					<ul>
+						<% menu.each do |activite| %>
+							<li>
+								<a class="scrollTo" href="#<%=activite.slug%>"><span><%=activite.title[3..-1]%></span></a>
+							</li>
+						<% end %>
+					</ul>
+				</div>
+				<div class="small-4 columns">
+					<ul>
+						<li><a class="scrollTo" href="#home-references"><span>Références</span></a></li>
+						<li><a class="scrollTo" href="#home-actualites"><span>Actus</span></a></li>
+						<li><a class="scrollTo" href="#home-contact"><span>Contact</span></a></li>
+					</ul>
+				</div>
+				<div class="small-4 columns">
+					<ul>
+						<li><a class="link-facebook" href=""><span>facebook</span></a></li>
+						<li><a href="mailto:contact@get-up.fr">contact@get-up.fr</a></li>
+						<li><a href="tel:0656566565">06 56 56 65 65</a></li>
+					</ul>
+				</div>
+		</div>
 	</div>
 </footer>
