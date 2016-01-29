@@ -18,8 +18,8 @@ $(document).ready(function(){
   });
 
   $("#home_news").als({
-    visible_items: 2,
-    scrolling_items: 10,
+    visible_items: 4,
+    scrolling_items: 1,
     orientation: "horizontal",
     circular: "yes",
     autoscroll: "no",

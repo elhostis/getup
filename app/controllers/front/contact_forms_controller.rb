@@ -6,27 +6,25 @@ class Front::ContactFormsController < FrontController
   # POST /contact_forms
   # POST /contact_forms.json
   def create
-    name = params["contact"]["firstname"]
     email = params["contact"]["email"]
     message = params["contact"]["message"]
 
-    name = "Non fourni" if name.blank?
-    email = "Non fourni" if email.blank?
-
-    unless message.blank?
+    if !message.blank? and !email.blank?
       sendgrid = SendGrid::Client.new(api_user: 'ggallais', api_key: '31get_gui')
       email = SendGrid::Mail.new do |m|
         m.to      = 'contact@getup.fr'
         m.from    = 'contact@getup.fr'
-        m.subject = "[GETUP] Nouveau message de la part de #{name}"
-        m.html    = "Nom : #{name}<br/>Email : #{email}<br/><br/>Message : <br/>#{message}"
+        m.subject = "[GETUP] Nouveau message de la part de #{email}"
+        m.html    = "Email : #{email}<br/><br/>Message : <br/>#{message}"
       end
 
       sendgrid.send(email)
+
+      flash[:notice] = 'Merci de nous avoir contacté. Votre message sera traité dans les meilleurs délais.'
     end
 
 
-    flash[:notice] = 'Merci de nous avoir contacté. Votre message sera traité dans les meilleurs délais.'
+    
     redirect_to front_root_path
 
   end

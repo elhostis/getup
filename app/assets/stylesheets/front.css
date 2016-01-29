@@ -83,7 +83,7 @@
 }
 
 #home_news .als-prev {
-  left: 20px;
+  left: -20px;
 }
 
 #home_news .als-next {

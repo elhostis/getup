@@ -2,12 +2,6 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'sessions'}
 
-  namespace :api do
-    resources :utils, :only => [], defaults: {format: :json} do
-      get 'get_share_count', :action => 'get_share_count',      :as => 'get_share_count', :on => :collection
-    end
-  end
-
   scope 'admin', :module => 'back', :as => 'back' do
     root to: "activites#index"
 
@@ -39,14 +33,7 @@ Rails.application.routes.draw do
   scope :module => 'front', :as => 'front' do
     root :to => 'indexs#index'
 
-    resources :activites, :only => [:show]
-    resources :news, :only => [:index]
-
-    resources :contact_forms, :only => [:new, :create]
-
-    get 'plandusite', :action => 'plandusite',      :as => 'plandusite'
-    get 'references', :action => 'references',      :as => 'references'
-
+    resources :contact_forms, :only => [:create]
 
   end
 

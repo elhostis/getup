@@ -139,56 +139,37 @@
 				</div>
 			</div>
 
-
-
-
-
-
 			<div class="row collapse">
 
-			<div class="als-container" id="home_news">
-				<span class="als-prev"><%= image_tag "front/thin_left_arrow_333.png", :alt => "Précédent" %></span>
-				<div class="als-viewport">
-			    <ul class="als-wrapper">
+				<div class="als-container" id="home_news">
+					<span class="als-prev"><%= image_tag "front/thin_left_arrow_333.png", :alt => "Précédent" %></span>
+					<div class="als-viewport">
+				    <ul class="als-wrapper">
 
-				<% left = true %>
-				<% @news.each do |news| %>
-					<li class="als-item small-12 medium-6 columns">
-					<div class="">
-						<div class="actu small">
-							<% unless news.image.blank? %>
-								<div class="visuel">
-									<img src="<%=news.image%>">
-								</div>
-							<% end %>
-							<div class="content">
-								<h3>
-									<%= news.title %>
-								</h3>
-								<p>
-									<%= news.intro %>
-								</p>
-							</div>
-							<div class="footer">
-								<div class="social-btns">
-									<%= render :partial => 'social_script' %>
+					<% @news.each do |news| %>
+						<li class="als-item small-12 medium-6 columns">
+							<div class="actu small">
+								<% unless news.image.blank? %>
+									<div class="visuel">
+										<img src="<%=news.image%>">
+									</div>
+								<% end %>
+								<div class="content">
+									<h3>
+										<%= news.title %>
+									</h3>
+									<p>
+										<%= news.intro %>
+									</p>
 								</div>
 							</div>
-							<% if left %>
-								<div class="clear-fix"></div>
-							<% else %>
-								<div class="spacer"></div>
-							<% end %>
-						</div>
-					</div>
-					</li>
-					<% left = !left %>
-				<% end %>
+						</li>
+					<% end %>
 
-					</ul>
-			 	</div>
-				<span class="als-next"><%= image_tag "front/thin_right_arrow_333.png", :alt => "Suivant" %></span>
-			</div>
+						</ul>
+				 	</div>
+					<span class="als-next"><%= image_tag "front/thin_right_arrow_333.png", :alt => "Suivant" %></span>
+				</div>
 
 			</div>
 		</div>
@@ -198,11 +179,11 @@
 			<div class="small-12 columns">
 				<h2>Contact</h2>
 				<p><strong>Guillaume Gallais  |  <a href="tel:0656566565">06 56 56 65 65</a></strong></p>
-				<form>
-					<input type="text" placeholder="Votre email">
-					<textarea rows="4" cols="50" placehoder="Votre message"></textarea>		
-					<input type="submit" value="ENVOYER">
-				</form>
+				<%= form_tag(front_contact_forms_path) do %>
+					<%= text_field 'contact', 'email', :placeholder => "Votre email" %>
+					<%= text_area 'contact', 'message', :rows => 4, :cols => 50, :placeholder => "Votre message" %>
+					<%= submit_tag("ENVOYER") %>
+				<% end %>
 			</div>
 		</div>
 	</section>

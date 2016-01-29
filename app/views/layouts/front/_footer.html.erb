@@ -4,10 +4,12 @@
 			<div class="row">
 				<div class="small-4 columns">
 					<ul>
-						<% menu.each do |activite| %>
-							<li>
-								<a class="scrollTo" href="#<%=activite.slug%>"><span><%=activite.title[3..-1]%></span></a>
-							</li>
+						<% if menu %>
+							<% menu.each do |activite| %>
+								<li>
+									<a class="scrollTo" href="#<%=activite.slug%>"><span><%=activite.title[3..-1]%></span></a>
+								</li>
+							<% end %>
 						<% end %>
 					</ul>
 				</div>
