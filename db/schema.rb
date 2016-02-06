@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307090616) do
+ActiveRecord::Schema.define(version: 20160206145046) do
 
   create_table "activites", force: true do |t|
     t.string   "title"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150307090616) do
   end
 
   create_table "sousactivite_images", force: true do |t|
-    t.string   "image"
+    t.string   "image",           limit: 1000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sousactivite_id"
