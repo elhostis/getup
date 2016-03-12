@@ -17,6 +17,10 @@ $textColor : #42454a;
 
 .spacer {clear:both;}
 /* HEADER */
+#header{
+	position: fixed;
+	width: 100%;
+}
 #header-top {
 	height: 1.875rem;
 	background-color: $dark;
@@ -25,6 +29,9 @@ $textColor : #42454a;
 	height: 6.375rem;
 	background-color: $light;
 }
+#header-header .row{
+}
+
 #home-slider {
 
 }
@@ -254,25 +261,7 @@ nav.top-bar {
 		width: auto;
 		position: relative;
 	}
-	.columns .visuel:after {
-		content:"";
-		width: 0;
-		height: 0;
-		border-style: solid;
-		position: absolute;
-		top: 50%;
-		margin-top: -44px;
-	}
-	.columns:nth-child(1) .visuel:after {
-		border-width: 44px 44px 44px 0;
-		border-color: transparent #fff transparent transparent;
-		right: 0;
-	}
-	.columns:nth-child(2) .visuel:after {
-		border-width: 44px 0 44px 44px;
-		border-color: transparent transparent transparent #fff;
-		left: 0;
-	}
+
 	.columns .hover {
 		position: relative;
 	}
@@ -309,6 +298,27 @@ nav.top-bar {
 		width: 25%;
 	}
 }
+
+#home-references2 {
+	background-color: #fd4326;
+	h2 {
+		color: #fff;
+		font-weight: 200;
+		font-size: 30px;
+		text-align: center;
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	li {
+		float: left;
+		padding: 20px;
+		width: 25%;
+	}
+}
+
 #home-actualites {
 	.wrapper {
 		max-width: 62.5rem;
@@ -389,7 +399,6 @@ nav.top-bar {
 		font-weight: normal;
 		text-align: center;
 		line-height: 35px;
-		margin-right: -204px;
 
 	}
 	h2 {

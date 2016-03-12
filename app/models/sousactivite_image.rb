@@ -1,3 +1,4 @@
 class SousactiviteImage < ActiveRecord::Base
-  #mount_uploader :image, LogoUploader
+	include RankedModel
+	ranks :row_order	
 end

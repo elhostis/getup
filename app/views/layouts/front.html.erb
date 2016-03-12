@@ -3,12 +3,12 @@
 <head>
 	<%#= TODO favicon_link_tag @current_organisation.favicon, :rel => 'shortcut icon', :type => 'image/png' %>
 	<title>Getup - TODO</title>
-	<%#= TODO - open_graph_meta_tags %>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="TODO">
-	<meta name="author" content="TODO">
+	<meta name="author" content="Guillaume Gallais">
+	<meta name="keywords" content="get up, getup, travaux hauteur, travaux acrobatiques, maintenance industrielle, intervention sur cordes" />
+	<meta name="description" content="Nos techniques d’intervention sur cordes nous permettent d’effectuer la maintenance de vos installations industrielles dans le strict respect des contraintes de sécurité qui sont les vôtres, en minimisant les contraintes liées à l’arrêt des unités de production. La mise en place rapide du matériel permet de réduire les durées d’intervention et donc suivant le lieu, de stopper un outil comme par exemple une chaîne de montage industriel. En évitant l’utilisation de matériel coûteux, encombrant et parfois impossible à mettre en place (nacelles, échafaudages...) nous vous offrons la possibilité de limiter la durée et la zone d’intervention." />
 	<%= csrf_meta_tags %>
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/overcast/jquery-ui.css">
@@ -36,6 +36,11 @@
 		<% if notice %>
 			<script type="text/javascript">
 				<%= add_gritter(notice, :title => "Message envoyé", :class_name => "gritter-success"	) %>
+			</script>
+		<% end %>
+		<% if alert %>
+			<script type="text/javascript">
+				<%= add_gritter(alert, :title => "Erreur", :sticky => true, :class_name => "gritter-error"	) %>
 			</script>
 		<% end %>
 

@@ -22,8 +22,17 @@
   margin: 0 0 0 0;
 }
 
-#bx-pager > .active > img{
+.bx-wrapper{
+  margin-bottom: 10px;
+}
+.bx-pager > .active > img{
   border: 2px solid #000;
+}
+
+.bx-pager img{
+  max-height: 100px;
+  max-height: 100px;
+  margin-bottom: 20px;
 }
 
 /*************************************
@@ -108,4 +117,8 @@
 .thumbnail_activite{
   max-width: 450px;
   max-height: 450px;
+}
+
+.gritter-error div{
+  color: #f04124;
 }

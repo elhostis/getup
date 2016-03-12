@@ -7,6 +7,7 @@ class Back::ActivitesController < BackController
 
   def index
     @activites = Activite.order("activites.title ASC").filter(get_params).page(params[:page]).per(5)
+    session[:tabs] = ""
   end
 
   def show

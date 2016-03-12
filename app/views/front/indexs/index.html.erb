@@ -1,10 +1,9 @@
 <% content_for :scripts do %>
 	<%= javascript_include_tag "front/jquery.bxslider.min.js" %>
 	<%= javascript_include_tag "front/jquery.easing.1.3.js" %>
-	<%= javascript_include_tag "front/carousel_home.js" %>
 	<%= javascript_include_tag "front/jquery.als-1.7.min.js" %>
 <% end %>
-<main>
+<main style="padding-top: 140px;">
 	<section id="home-slider">
 		<div class="row collapse">
 			<div class="small-12 columns">
@@ -57,7 +56,7 @@
 		</div>
 	</section>
 	<% @activite.each do |activite| %>
-		<section id="home-references">
+		<section id="home-references2">
 			<div class="row collapse" id="<%=activite.slug%>">
 				<div class="small-12">
 					<h2><%=activite.title[3..-1]%></h2>
@@ -70,17 +69,23 @@
 				<div class="row collapse">
 					<% if left %>
 						<div class="small-12 medium-6 columns">
-							<ul class="bxslider2 bxslider_fix">
+							<ul id="bxslider-<%=ssactivite.id%>" class="bxslider_fix">
 								<% ssactivite.sousactivite_images.each do |image| %>
 									<li>
 										<div class="visuel">
 											<div class="">
 												<img class="visuel" src="<%=image.image%>">
+												<p><%=image.description%></p>
 											</div>
 										</div>
 									</li>
 								<% end %>
 							</ul>
+							<div id="bx-pager-<%=ssactivite.id%>" class="bx-pager">
+								<% ssactivite.sousactivite_images.each_with_index do |image, i| %>
+							  <a data-slide-index="<%=i%>" href=""><img src="<%=image.image%>" /></a>
+							  <% end %>
+							</div>
 						</div>
 					<% end %>
 					<div id="<%=ssactivite.slug%>" class="small-12 medium-6 columns">
@@ -92,17 +97,23 @@
 					</div>
 					<% unless left %>
 						<div class="small-12 medium-6 columns">
-							<ul class="bxslider2 bxslider_fix">
-								<% ssactivite.sousactivite_images.each do |image| %>
+							<ul id="bxslider-<%=ssactivite.id%>" class="bxslider_fix">
+								<% ssactivite.sousactivite_images.rank(:row_order).each do |image| %>
 									<li>
 										<div class="visuel">
 											<div class="">
 												<img class="visuel" src="<%=image.image%>">
+												<p><%=image.description%></p>
 											</div>
 										</div>
 									</li>
 								<% end %>
 							</ul>
+							<div id="bx-pager-<%=ssactivite.id%>" class="bx-pager">
+								<% ssactivite.sousactivite_images.rank(:row_order).each_with_index do |image, i| %>
+							  <a data-slide-index="<%=i%>" href=""><img src="<%=image.image%>"/></a>
+							  <% end %>
+							</div>
 						</div>
 					<% end %>
 					<% left = !left %>
@@ -180,9 +191,23 @@
 				<h2>Contact</h2>
 				<p><strong>Guillaume Gallais  |  <a href="tel:0656566565">06 56 56 65 65</a></strong></p>
 				<%= form_tag(front_contact_forms_path) do %>
-					<%= text_field 'contact', 'email', :placeholder => "Votre email" %>
-					<%= text_area 'contact', 'message', :rows => 4, :cols => 50, :placeholder => "Votre message" %>
-					<%= submit_tag("ENVOYER") %>
+					<div class="row">
+						<div class="small-3 columns">&nbsp;</div>
+						<div class="small-3 columns">
+							<%= text_field 'contact', 'name', :placeholder => "Nom", :style => 'width:200px;' %>
+							<%= text_field 'contact', 'email', :placeholder => "Email", :style => 'width:200px;' %>
+							<%= text_field 'contact', 'tel', :placeholder => "Téléphone", :style => 'width:200px;' %>
+						</div>
+						<div class="small-3 columns">
+							<%= text_area 'contact', 'message', :rows => 8, :cols => 50, :placeholder => "Votre message" %>
+						</div>
+						<div class="small-3 columns">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div class="small-3 columns">&nbsp;</div>
+						<div class="small-6 columns"><%= submit_tag("ENVOYER") %></div>
+						<div class="small-3 columns">&nbsp;</div>
+					</div>
 				<% end %>
 			</div>
 		</div>
@@ -209,3 +234,46 @@
 	
 </main>
 
+<script type="text/javascript">
+$(document).ready(function(){
+// carousel
+	$(function() {
+	  $('.bxslider').bxSlider({
+	    infiniteLoop: true,
+	    auto: true,
+	    pager: false,
+	    controls: false,
+	    mode: 'fade'
+	  });
+
+	  <% @activite.each do |activite| %>
+	  	<% activite.sousactivites.scope_published(true).order("title").each do |ssactivite| %>
+	  		$('#bxslider-<%=ssactivite.id%>').bxSlider({
+			    // infiniteLoop: true,
+			    hideControlOnEnd: true,
+			    auto: false,
+			    pager: true,
+					// nextText: '<i class="fa fa-chevron-circle-right fa-3x"></i>',
+	  			// prevText: '<i class="fa fa-chevron-circle-left fa-3x"></i>',
+	  			pagerCustom: '#bx-pager-<%=ssactivite.id%>'
+				});
+	  	<% end %>
+	  <% end %>
+
+		
+
+		$("#home_news").als({
+	    visible_items: 4,
+	    scrolling_items: 1,
+	    orientation: "horizontal",
+	    circular: "yes",
+	    autoscroll: "no",
+	    interval: 5000
+	  });
+
+	});
+});
+
+
+
+</script>

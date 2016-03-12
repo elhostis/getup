@@ -1,0 +1,21 @@
+<tr data-item-id=<%= "#{sousactivite_image.id}" %> class="item">
+  <td class="reorder" style="cursor: move">
+	  <i class="icon-ellipsis-vertical"></i>
+	</td>
+  <td>
+    <img src="<%=sousactivite_image.image%>">
+  </td>
+  <td>
+    <%= sousactivite_image.description %>
+  </td>
+  <td>
+    <div class="btn-group pull-right">
+      <%= link_to edit_back_sousactivite_sousactivite_image_path(@sousactivite.id, sousactivite_image.id), :remote => true, :class => 'btn btn-small static-popup-link my-tooltip', :data => { :delay => 500, :title => "Editer"} do %>
+        <i class="icon-pencil"></i>
+      <% end %>
+      <%= link_to back_sousactivite_sousactivite_image_path(@sousactivite.id, sousactivite_image.id), :method => 'delete', :data => { :confirm => "Sûr ?", :delay => 500, :title => "Supprimer"}, :class => 'btn btn-small btn-danger my-tooltip' do %>
+        <i class="icon-trash icon-white"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

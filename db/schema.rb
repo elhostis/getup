@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206145046) do
+ActiveRecord::Schema.define(version: 20160305085550) do
 
   create_table "activites", force: true do |t|
     t.string   "title"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20160206145046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sousactivite_id"
+    t.string   "description"
+    t.integer  "row_order",                    default: 0
   end
 
   add_index "sousactivite_images", ["sousactivite_id"], name: "index_sousactivite_images_on_sousactivite_id", using: :btree

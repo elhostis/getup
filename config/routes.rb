@@ -18,6 +18,9 @@ Rails.application.routes.draw do
         get  'publish_status/:publish', :action => 'publish_status', :as => 'publish_status'
         get  'previsu', :action => 'previsu', :as => 'previsu'
       end
+
+      post 'sousactivite_images/update_row_order', to: 'sousactivite_images#update_row_order', as: 'update_row_order', on: :collection
+      resources :sousactivite_images
     end
 
     resources :news do

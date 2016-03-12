@@ -17,10 +17,10 @@
   <div class="navbar-inner">
     <div class="container">
       <ul class="nav nav-tabs" id="tabs">
-        <li class="active">
+        <li <% if session[:tabs] == "#text"%>class="active"<%end%>>
           <a href="#text" data-toggle="tab" class="tab">Textes</a>
         </li>
-        <li >
+        <li <% if session[:tabs] == "#image"%>class="active"<%end%>>
           <a href="#image" data-toggle="tab" class="tab">Images</a>
         </li>
       </ul>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="text">
+  <div class="tab-pane <% if session[:tabs] == "#text"%>active<%end%>" id="text">
     <div class="row">
       <div class="span12">
         <div class="control-group" style='height:60px;'>
@@ -42,47 +42,93 @@
     </div>
   </div>
 
-  <div class="tab-pane" id="image">
+  <div class="tab-pane <% if session[:tabs] == "#image"%>active<%end%>" id="image">
     <div class="row">
       <div class="span12">
         <div class='event-table'>
-
-          <div class="control-group tab-content">
-            <div class='event-table-column' style='width:500px;'>
-              <div class="control-group" style='width:1100px;'>
-                <div id="list_images">
-                  <%= f.fields_for :sousactivite_images do |sousactivite_image| %>
-                    <% unless sousactivite_image.object.image.blank? %>
-                      <div class="sousactivite_image">
-                        <%= image_tag sousactivite_image.object.image, :alt => "", :class => "vignette" %>
-                        <input id="list_images" name="list_images[]" type="hidden" value="<%=sousactivite_image.object.id%>">
-                        <div class="event-image-link">
-                          <a onclick="javascript:$(this).parent().parent().remove();">Supprimer ?</a>
-                        </div>
-                      </div>
-                    <% else %>
-                      </div>
-                      <div style="clear:both"></div>
-                      <div id="add_image" >
-                        Pour ajouter une nouvelle image, cliquez sur le bouton suivant.<br/>
-                        <%= sousactivite_image.text_field :image, :id => "load-preview-image" %>
-                      </div>
-                      <div>
-                        <img id="preview-image"/>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
+          <div class="back-button">
+              <div class="back-list-button-general">
+                <%= link_to new_back_sousactivite_sousactivite_image_path(@sousactivite.id), remote: true, :class => "btn btn-inverse btn-small static-popup-link my-tooltip", :data => { :delay => 500, :title => "Ajouter"} do %>
+                  <i class="icon-plus icon-white"></i>
+                <% end %>
               </div>
-            </div>
           </div>
+          <% if @sousactivite_images.length == 0 %>
+            <div class='event-table-column' style='width:800px;'>
+              <br/>
+              Aucune image
+            </div>
+          <% else %>
+            <div class='event-table-column' style='width:800px;'>
+              <table class="table table-striped" id="sortable">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th class="span4">
+                      Image
+                    </th>
+                    <th class="span4">
+                      Description
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <%= render partial: "back/sousactivite_images/sousactivite_image", collection: @sousactivite_images %>
+              </table>
+            </div>
+          <% end %>
         </div>
       </div>
-
-
     </div>
   </div>
 
 </div>
 
 <% end %>
+
+<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" style="width:700px; padding:30px; overflow-y: scroll; overflow-x: hidden; height:500px;">
+</div>
+
+<script type="text/javascript">
+  var sousactivite_ready = function() {
+
+    // To sort params with drag&drop
+    //var cells, desired_width, table_width;
+    if ($('#sortable').length > 0) {
+      // table_width = $('#sortable').width();
+      // cells = $('.table').find('tr')[0].cells.length;
+      // desired_width = table_width / cells + 'px';
+      // $('.table td').css('width', desired_width);
+      $('#sortable').sortable({
+        axis: 'y',
+        items: '.item',
+        cursor: 'move',
+        sort: function(e, ui) {
+          return ui.item.addClass('active-item-shadow');
+        },
+        stop: function(e, ui) {
+          ui.item.removeClass('active-item-shadow');
+          return ui.item.children('td').effect('highlight', {}, 1000);
+        },
+        update: function(e, ui) {
+          var item_id, position;
+          item_id = ui.item.data('item-id');
+          position = ui.item.index();
+          return $.ajax({
+            type: 'POST',
+            url: '/admin/sousactivites/sousactivite_images/update_row_order',
+            dataType: 'json',
+            data: {
+                id: item_id,
+                row_order_position: position
+            }
+          });
+        }
+      });
+    }
+
+
+  };
+  $(document).ready(sousactivite_ready);
+  $(document).on('page:load', sousactivite_ready);
+</script>

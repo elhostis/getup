@@ -14,7 +14,8 @@ class Back::SousactivitesController < BackController
   end
 
   def edit
-    @sousactivite.sousactivite_images.new()
+    @sousactivite_images = @sousactivite.sousactivite_images.rank(:row_order)
+    session[:tabs] = "#text" if session[:tabs].blank?
   end
 
   def previsu

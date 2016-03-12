@@ -1,0 +1,80 @@
+<p id="popup-error-message" class="alert alert-danger" style="display:none;"></p>
+
+<%= form_for(@sousactivite_image, :url => (@sousactivite_image.persisted? ? back_sousactivite_sousactivite_image_path(@sousactivite.id, @sousactivite_image.id) : back_sousactivite_sousactivite_images_path(@sousactivite.id))) do |sousactivite_image_form| %>
+
+<%= sousactivite_image_form.hidden_field :sousactivite_id, :value => @sousactivite.id %>
+
+<div class="row">
+  <div class="span2">
+    <div class="control-group event-table-elem-small">
+      Image
+    </div>
+    <div class="control-group event-table-elem-small" style="padding-top: 30px;">
+      Description
+    </div>
+  </div>
+  <div class="span4">
+    <div class="control-group event-table-elem-small">
+      <%= sousactivite_image_form.text_field :image, :style => "width: 350px;" %>
+    </div>
+    <div class="control-group event-table-elem-small">
+      <%= sousactivite_image_form.text_area :description, :style => "width: 350px;" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-actions">
+  <a class="btn-end btn btn-primary">Valider</a>
+  <a class="close-popup-link btn btn-inverse">Fermer</a>
+</div>
+
+<% end %>
+
+<script type="text/javascript">
+var sousactivite_image_ready = function() {
+
+
+  // Fields in error
+  var fields_in_error = new Array();
+
+  // Init the error messages
+  function init_error(){
+    $('#popup-error-message').hide();
+    fields_in_error.forEach(function(field) {
+      $(field).parent().removeClass('error');
+    });
+    fields_in_error = new Array();
+  }
+
+  // Show list of errors
+  // If exists => return true
+  // If no error => return false
+  function is_error(message){
+    message = typeof message !== 'undefined' ? message : "Champ requis";
+
+    if (fields_in_error.length == 0) return false;
+    fields_in_error.forEach(function(field) {
+      $(field).parent().addClass('error');
+    });
+    $('#popup-error-message').text(message);
+    $('#popup-error-message').show();
+
+    return true;
+  }
+
+
+  // Validation of form
+  function check_form(){
+    if ($('#sousactivite_image_image').val() == '') fields_in_error.push('#sousactivite_image_image');
+    // Submit form if no error
+    return !is_error();
+  }
+
+  $('.btn-end').on('click', function(){
+    init_error();
+    if (check_form()) $(this).closest("form").submit();
+  });
+};
+$(document).ready(sousactivite_image_ready);
+$(document).on('page:load', sousactivite_image_ready);
+</script>

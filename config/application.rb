@@ -22,5 +22,20 @@ module GetupClient
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
+    config.action_mailer.delivery_method = :smtp
+    # SMTP settings for gmail
+    config.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :user_name            => 'eric.lhostis@gmail.com',
+      :password             => '31oudalemo',
+      :domain               => 'gmail.com',
+      :authentication       => :login,
+      :enable_starttls_auto => true
+    }
+
+    config.from = "contact@get-up.fr"
+    config.destinataire = "contact@get-up.fr"
+
   end
 end
