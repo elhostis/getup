@@ -27,8 +27,8 @@ module GetupClient
     config.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :user_name            => 'eric.lhostis@gmail.com',
-      :password             => '31oudalemo',
+      :user_name            => 'getup35ggnet@gmail.com',
+      :password             => 'aze12_SDs)',
       :domain               => 'gmail.com',
       :authentication       => :login,
       :enable_starttls_auto => true
