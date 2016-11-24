@@ -1,0 +1,31 @@
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="steeef"
+COMPLETION_WAITING_DOTS="true"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+# lang
+export LANG=fr_FR.UTF-8
+
+# command aliases
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias c='clear'
+alias s='cd ..'
+alias reloadenv='source ~/.zshrc'
+alias isrunning='ps alx | grep'
+
+# utils command
+alias rails='export $(sudo cat /root/clicrdv/secret.conf) && bundle exec rails'
+alias rake='export $(sudo cat /root/clicrdv/secret.conf) && bundle exec rake'
+alias current='cd /opt/clicrdv/clicrdv/'
+alias tail_nginx='tail -f /var/log/nginx/*.log'
+alias tail_clicrdv='tail -f /opt/clicrdv/clicrdv/log/*.log'
+
+alias passenger-status='/usr/sbin/passenger-status'
+alias passenger-memory-stats='/usr/sbin/passenger-memory-stats'
+
+if [ -e "/opt/clicrdv/clicrdv" ];then current; fi

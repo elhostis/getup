@@ -1,0 +1,6 @@
+[all:vars]
+app_user=getup
+ansible_user=admin
+
+[getup]
+54.194.40.134

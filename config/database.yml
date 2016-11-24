@@ -19,9 +19,9 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  host: localhost
+  host: getup.cn0gi58oflts.eu-west-1.rds.amazonaws.com
   database: getup
   pool: 5
-  username: root
-  password: root
+  username: getup
+  password: fdlez2SxlsZLQwzl2
 

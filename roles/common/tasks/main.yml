@@ -1,0 +1,125 @@
+
+# Hack - Add stretch repo for install future package (like nginx)
+# - name: Add stretch repo
+#   copy:
+#     src: "files/stretch.list"
+#     dest: "/etc/apt/sources.list.d/stretch.list"
+
+# Common packages
+- name: Update package repo
+  apt:
+    update_cache: yes
+- name: Install package
+  apt:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - ack-grep
+    - acl  # required by Ansible 2.1 to become_user
+    - apt-transport-https
+    - build-essential
+    - curl
+    - emacs24-nox
+    - git
+    - ntp
+    - vim
+    - zsh
+    - mysql-client
+    - libmysqlclient-dev
+    - python-mysqldb  # To use Ansible mysql_db module
+    - dnsmasq  # For local resolver
+    - telnet
+    - htop
+
+# User configuration
+- name: Create users
+  user:
+    name: "{{item}}"
+    shell: "/bin/zsh"
+  with_items:
+    - "{{ app_user }}"
+- name: Create ssh directory
+  file:
+    path: "/home/{{item}}/.ssh"
+    owner: "{{item}}"
+    group: "{{item}}"
+    state: directory
+    mode: 0700
+  with_items:
+    - "{{ app_user }}"
+
+# Common configuration
+- name: Set timezone variables
+  copy:
+    content: "Europe/Paris\n"
+    dest: "/etc/timezone"
+    owner: root
+    group: root
+    mode: 0644
+  notify: update_timezone
+- name: Create locale
+  locale_gen:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - "en_US.UTF-8"
+    - "fr_FR.UTF-8"
+- name: Set locale
+  copy:
+    content: "LANG=fr_FR.UTF-8\nLC_ALL=fr_FR.UTF-8"
+    dest: "/etc/default/locale"
+    owner: root
+    group: root
+    mode: 0644
+- name: Set default editor to vim
+  alternatives:
+    name: editor
+    path: "/usr/bin/vim.basic"
+- name: create log directory
+  file:
+    path: /var/log/getup
+    state: directory
+    group: "{{app_user}}"
+    owner: "{{app_user}}"
+    mode: 0755
+
+# APP user configuration
+- name: Install vim conf & color scheme
+  unarchive:
+    src: vim.tgz
+    dest: /home/{{ app_user }}
+    creates: /home/{{ app_user }}/.vim/colors/jellybeans.vim
+    owner: "{{ app_user }}"
+- name: Install emacs conf & color scheme
+  unarchive:
+    src: emacs.tgz
+    dest: /home/{{ app_user }}
+    creates: /home/{{ app_user }}/.emacs.d/themes/tangotango-theme.el
+    owner: "{{ app_user }}"
+- name: Create git config file
+  copy:
+    src: "files/gitconfig"
+    dest: "/home/{{app_user}}/.gitconfig"
+    owner: "{{app_user}}"
+    group: "{{app_user}}"
+- name: Create zsh config file
+  copy:
+    src: "files/zshrc"
+    dest: "/home/{{app_user}}/.zshrc"
+    owner: "{{app_user}}"
+    group: "{{app_user}}"
+- name: Download oh-my-zsh project
+  git:
+    repo: "https://github.com/robbyrussell/oh-my-zsh.git"
+    dest: "/home/{{app_user}}/.oh-my-zsh"
+    version: master
+    accept_hostkey: true
+  become_user: "{{app_user}}"
+
+# Clicrdv configuration
+- name: Create global directory
+  file:
+    path: "/opt/getup"
+    state: directory
+    owner: "{{app_user}}"
+    group: "{{app_user}}"

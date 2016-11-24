@@ -1,0 +1,71 @@
+- set_fact:
+    local_path: "/opt/getup/{{project}}"
+
+- block:
+  - name: Install package
+    apt:
+      name: "{{item}}"
+      state: latest
+    with_items:
+      - imagemagick # For image edition
+  - name: Copy logrotate conf
+    copy:
+      src: "files/logrotate"
+      dest: "/etc/logrotate.d/getup"
+      mode: 0644
+  tags: ['system']
+
+# Update app
+- block:
+  - name: Update app repo
+    git:
+      repo: "{{repo}}"
+      dest: "{{local_path}}"
+      version: "master"
+      accept_hostkey: true
+      force: yes
+    become_user: "{{app_user}}"
+    notify: restart_nginx
+  - name: Bundler app
+    bundler:
+      chdir: "{{local_path}}"
+      state: present
+      deployment_mode: "yes"
+    become_user: "{{app_user}}"
+  tags: ['app']
+
+# Conf
+- block:
+  # Warning:
+  #   - don't set owner & group in dev mode, since it doesn't work in a NFS shared folder on OS X
+  #     (see: https://groups.google.com/forum/#!topic/vagrant-up/rTI8xy9Mo0k)
+  - name: Restore rights of log files
+    shell: "chown {{app_user}}:{{app_user}} {{repo_local}}{{project}}/log -R"
+  tags: ['conf']
+
+# Database
+- block:
+  - name: Create database
+    mysql_db:
+      login_host: "getup.cn0gi58oflts.eu-west-1.rds.amazonaws.com"
+      login_user: "admin"
+      login_password: "aks2SQwqz2qw"
+      name: "getup"
+      collation: utf8_unicode_ci
+      state: present
+  - name: Create user RW
+    mysql_user:
+      login_host: "getup.cn0gi58oflts.eu-west-1.rds.amazonaws.com"
+      login_user: "admin"
+      login_password: "aks2SQwqz2qw"
+      name: "getup"
+      password: "fdlez2SxlsZLQwzl2"
+      host: '%'
+      priv: "getup.*:ALL"
+      append_privs: true
+      state: present
+  - name: Migrate database
+    shell: bundle exec rake db:migrate
+    args:
+      chdir: "{{local_path}}"
+  tags: ['db']

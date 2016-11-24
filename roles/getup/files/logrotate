@@ -1,0 +1,11 @@
+/opt/getup/getup/log/*.log {
+  daily
+  missingok
+  rotate 30
+  compress
+  delaycompress
+  notifempty
+  create 644 getup getup
+  sharedscripts
+  copytruncate
+}

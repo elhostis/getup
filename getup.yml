@@ -1,0 +1,9 @@
+- hosts: getup
+  become: yes
+  become_method: sudo
+
+  roles:
+    # - { role: common, tags: ['common'] }
+    - { role: getup, tags: ['getup'] }
+    - { role: handlers }
+

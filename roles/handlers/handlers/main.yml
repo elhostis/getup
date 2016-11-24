@@ -1,0 +1,17 @@
+# Handlers are exported in a dedicated role to always include them.
+#
+# For exemple, if the nginx role is included with the tag 'system', and the playbook is launched with excluding the system tag
+# the handler will not be included and nginx will never reload.
+
+#
+# Nginx
+# reload command return 0 even if an error exists, so check the config before
+# don't use service because it does not exists on the dispatcher
+- name: restart_nginx
+  shell: /etc/init.d/nginx configtest && /etc/init.d/nginx restart
+- name: reload_nginx
+  shell: /etc/init.d/nginx configtest && /etc/init.d/nginx reload
+
+# Timezone
+- name: update_timezone
+  command: dpkg-reconfigure --frontend noninteractive tzdata
