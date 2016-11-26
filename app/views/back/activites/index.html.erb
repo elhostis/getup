@@ -77,7 +77,7 @@
       <tbody>
         <% @activites.each do |activite| %>
           <%= render partial: "activite", :locals => {:activite => activite} %>
-          <% activite.sousactivites.each do |sousactivite| %>
+          <% activite.sousactivites.order("title").each do |sousactivite| %>
             <%= render partial: "sousactivites", :locals => {:sousactivite => sousactivite} %>
           <% end %>
         <% end %>
