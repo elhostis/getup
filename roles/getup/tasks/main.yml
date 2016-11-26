@@ -8,6 +8,7 @@
       state: latest
     with_items:
       - imagemagick # For image edition
+      - nodejs
   - name: Copy logrotate conf
     copy:
       src: "files/logrotate"
@@ -40,7 +41,7 @@
   #   - don't set owner & group in dev mode, since it doesn't work in a NFS shared folder on OS X
   #     (see: https://groups.google.com/forum/#!topic/vagrant-up/rTI8xy9Mo0k)
   - name: Restore rights of log files
-    shell: "chown {{app_user}}:{{app_user}} {{repo_local}}{{project}}/log -R"
+    shell: "chown {{app_user}}:{{app_user}} {{local_path}}/log -R"
   tags: ['conf']
 
 # Database
@@ -65,7 +66,7 @@
       append_privs: true
       state: present
   - name: Migrate database
-    shell: bundle exec rake db:migrate
+    shell: RAILS_env = production bundle exec rake db:migrate
     args:
       chdir: "{{local_path}}"
   tags: ['db']
