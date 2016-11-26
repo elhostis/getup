@@ -52,7 +52,7 @@ group :test, :development do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   # A best display of errors
-  gem 'better_errors'
+  # gem 'better_errors'
   # Coverage
   gem 'simplecov', '~> 0.8.2'
   gem 'simplecov-rcov', '~> 0.2.3'
@@ -98,6 +98,4 @@ gem 'sanitize'
 
 gem 'ckeditor'
   
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
-
 gem 'ranked-model'
