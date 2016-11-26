@@ -66,7 +66,7 @@
       append_privs: true
       state: present
   - name: Migrate database
-    shell: RAILS_env = production bundle exec rake db:migrate
+    shell: RAILS_ENV = production bundle exec rake db:migrate
     args:
       chdir: "{{local_path}}"
   tags: ['db']
